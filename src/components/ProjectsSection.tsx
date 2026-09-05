@@ -53,6 +53,9 @@ export default function ProjectsSection() {
 
   // Filter logic
   const filteredRepos = repositories.filter((repo) => {
+    // Explicitly reject any non-existent 'mykytadu' repo
+    if (repo.name.toLowerCase() === 'mykytadu') return false;
+
     const matchesSearch = 
       repo.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       (repo.description && repo.description.toLowerCase().includes(searchQuery.toLowerCase())) ||
@@ -61,7 +64,11 @@ export default function ProjectsSection() {
     if (!matchesSearch) return false;
 
     if (activeTab === 'featured') {
-      return repo.is_featured || repo.name === 'Our-Recipes' || repo.name === 'Carshop' || repo.name === 'mykytadu';
+      return repo.is_featured || 
+             repo.name.toLowerCase().includes('recipes') || 
+             repo.name.toLowerCase().includes('carshop') || 
+             repo.name.toLowerCase() === 'mykytadu-api' || 
+             repo.name.toLowerCase() === 'mykytadu-app';
     }
     if (activeTab === 'java') {
       return (repo.language && repo.language.toLowerCase() === 'java') || 

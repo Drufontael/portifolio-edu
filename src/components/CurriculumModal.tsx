@@ -260,9 +260,9 @@ Tecnólogo em Análise e Desenvolvimento de Sistemas | Anhanguera Educacional (2
 
                 <div>
                   <p className="font-bold text-white">
-                    MykytaDu — <span className="font-normal text-zinc-500">Kotlin Multiplatform, Compose, Koin, Ktor</span>
+                    MykytaDu (API & App) — <span className="font-normal text-zinc-500">Kotlin, REST API, Compose Multiplatform, Ktor</span>
                   </p>
-                  <p className="text-zinc-400">Aplicativo multiplataforma para Android e Desktop com Koin DI, cliente Ktor e design system reutilizável.</p>
+                  <p className="text-zinc-400">Ecossistema composto por API RESTful backend (mykytadu-api) para gestão de catálogo e persistência de dados, integrado ao aplicativo multiplataforma Android/Desktop (mykytadu-app) com Compose Multiplatform e Koin.</p>
                 </div>
               </div>
             </div>

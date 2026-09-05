@@ -2,10 +2,19 @@ import { Repository, GitHubUserProfile } from '../types';
 import { FEATURED_PROJECTS } from '../data/portfolioData';
 
 const GITHUB_USERNAME = 'Drufontael';
-const CACHE_KEY = `github_repos_${GITHUB_USERNAME}`;
-const CACHE_PROFILE_KEY = `github_profile_${GITHUB_USERNAME}`;
-const CACHE_TIME_KEY = `github_cache_time_${GITHUB_USERNAME}`;
+const CACHE_KEY = `github_repos_${GITHUB_USERNAME}_v3`;
+const CACHE_PROFILE_KEY = `github_profile_${GITHUB_USERNAME}_v3`;
+const CACHE_TIME_KEY = `github_cache_time_${GITHUB_USERNAME}_v3`;
 const CACHE_TTL_MS = 15 * 60 * 1000; // 15 minutes
+
+// Clean up any legacy cache entries
+try {
+  localStorage.removeItem(`github_repos_${GITHUB_USERNAME}`);
+  localStorage.removeItem(`github_repos_${GITHUB_USERNAME}_v2`);
+  localStorage.removeItem(`github_profile_${GITHUB_USERNAME}`);
+} catch {
+  // safe ignore in environments where localStorage might be restricted
+}
 
 export async function fetchGitHubProfile(): Promise<GitHubUserProfile | null> {
   try {
@@ -55,11 +64,11 @@ export async function fetchGitHubRepositories(): Promise<Repository[]> {
 
     // Map and enrich with our detailed architectural knowledge
     const enrichedRepos: Repository[] = apiRepos
-      .filter((repo) => !repo.fork) // prioritize original works
+      .filter((repo) => !repo.fork && repo.name.toLowerCase() !== 'mykytadu') // prioritize original works and exclude non-existent 'mykytadu'
       .map((apiRepo) => {
-        // Check if we have curated highlights for this repository
+        // Check if we have curated highlights for this repository - EXACT MATCH ONLY to avoid cross-pollination between app and api
         const existingCurated = FEATURED_PROJECTS.find(
-          (p) => p.name.toLowerCase() === apiRepo.name.toLowerCase() || apiRepo.name.toLowerCase().includes(p.name.toLowerCase())
+          (p) => p.name.toLowerCase() === apiRepo.name.toLowerCase()
         );
 
         return {
@@ -76,7 +85,7 @@ export async function fetchGitHubRepositories(): Promise<Repository[]> {
           topics: apiRepo.topics && apiRepo.topics.length > 0 ? apiRepo.topics : existingCurated?.topics || [],
           homepage: apiRepo.homepage || null,
           default_branch: apiRepo.default_branch || 'main',
-          is_featured: existingCurated ? true : false,
+          is_featured: existingCurated ? existingCurated.is_featured : false,
           architecture: existingCurated?.architecture || (apiRepo.language === 'Java' ? 'Spring Boot RESTful' : 'Clean Architecture'),
           highlights: existingCurated?.highlights,
           commits_count: existingCurated?.commits_count,
@@ -85,6 +94,7 @@ export async function fetchGitHubRepositories(): Promise<Repository[]> {
 
     // Merge any featured projects that might not have appeared or need priority order
     FEATURED_PROJECTS.forEach((featured) => {
+      if (featured.name.toLowerCase() === 'mykytadu') return;
       const alreadyIncluded = enrichedRepos.some((r) => r.name.toLowerCase() === featured.name.toLowerCase());
       if (!alreadyIncluded) {
         enrichedRepos.unshift(featured);
@@ -97,7 +107,7 @@ export async function fetchGitHubRepositories(): Promise<Repository[]> {
     return enrichedRepos;
   } catch (error) {
     console.warn('Using curated repository list due to GitHub API rate-limit/network:', error);
-    return FEATURED_PROJECTS;
+    return FEATURED_PROJECTS.filter((p) => p.name.toLowerCase() !== 'mykytadu');
   }
 }
 
