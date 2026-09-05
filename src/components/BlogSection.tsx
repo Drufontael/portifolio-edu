@@ -31,10 +31,10 @@ export default function BlogSection({ onSelectArticle }: BlogSectionProps) {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 text-left">
           <div className="space-y-3 max-w-2xl">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500 flex items-center gap-2 font-mono">
+            <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 flex items-center gap-2 font-mono">
               <BookOpen className="w-3.5 h-3.5 text-blue-500" />
               <span>Artigos Técnicos e Publicações</span>
-            </h3>
+            </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight font-mono">
               Blog de Engenharia & Tecnologia
             </h2>

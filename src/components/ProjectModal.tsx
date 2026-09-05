@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { 
   X, 
   Github, 
@@ -24,6 +24,9 @@ interface ProjectModalProps {
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   const [copiedClone, setCopiedClone] = useState(false);
+  const modalContentRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previousActiveElement = useRef<HTMLElement | null>(null);
 
   const handleCloseSafe = useCallback(() => {
     if (window.history.state?.modalOpen === 'project') {
@@ -36,16 +39,46 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   useEffect(() => {
     if (!project) return;
 
+    previousActiveElement.current = document.activeElement as HTMLElement | null;
+
     // Prevent background scrolling
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
 
-    // Handle Escape key
+    // Focus close button on mount
+    const timer = setTimeout(() => {
+      closeButtonRef.current?.focus();
+    }, 50);
+
+    // Trap focus and handle Escape
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         handleCloseSafe();
+        return;
+      }
+
+      if (e.key === 'Tab' && modalContentRef.current) {
+        const focusableElements: HTMLElement[] = Array.from(
+          modalContentRef.current.querySelectorAll<HTMLElement>(
+            'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          )
+        );
+
+        if (focusableElements.length === 0) return;
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey && document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
+        }
       }
     };
+
     window.addEventListener('keydown', handleKeyDown);
 
     // Push state so mobile/browser back button closes modal safely
@@ -56,9 +89,13 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     window.addEventListener('popstate', handlePopState);
 
     return () => {
+      clearTimeout(timer);
       document.body.style.overflow = originalOverflow;
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('popstate', handlePopState);
+      if (previousActiveElement.current && typeof previousActiveElement.current.focus === 'function') {
+        previousActiveElement.current.focus();
+      }
     };
   }, [project, onClose, handleCloseSafe]);
 
@@ -87,14 +124,16 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       {/* Centering wrapper with min-h-full and items-start to prevent top clipping */}
       <div className="min-h-full w-full flex items-start justify-center p-3 sm:p-6 py-6 sm:py-10">
         <div 
+          ref={modalContentRef}
           className="relative w-full max-w-3xl rounded-xl bg-zinc-900 border border-zinc-800 shadow-2xl p-5 sm:p-8 space-y-6 text-left animate-in fade-in zoom-in-95 duration-200"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close button */}
           <button
+            ref={closeButtonRef}
             onClick={handleCloseSafe}
-            className="absolute top-5 right-5 p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
-            aria-label="Fechar modal"
+            className="absolute top-5 right-5 p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+            aria-label="Fechar modal de detalhes do projeto"
             title="Fechar modal (Esc)"
           >
             <X className="w-5 h-5" />
@@ -162,7 +201,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               </span>
               <button
                 onClick={handleCopy}
-                className="flex items-center gap-1 text-zinc-300 hover:text-white transition-colors"
+                className="flex items-center gap-1 text-zinc-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded px-1.5 py-0.5"
               >
                 {copiedClone ? (
                   <>
@@ -188,7 +227,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               <div className="space-y-1 bg-zinc-950 p-3.5 rounded-lg border border-zinc-800">
                 <div className="text-xs font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
                   <Target className="w-3.5 h-3.5 text-red-400" />
-                  <span>Problema Resolvido</span>
+                  <span>{project.problemLabel || 'Problema abordado'}</span>
                 </div>
                 <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
                   {project.problemSolved}
@@ -264,7 +303,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             <div className="flex items-center gap-3">
               <button
                 onClick={handleCloseSafe}
-                className="px-4 py-2 rounded-lg text-sm text-zinc-300 hover:text-white bg-zinc-800 hover:bg-zinc-700 transition-colors"
+                className="px-4 py-2 rounded-lg text-sm text-zinc-300 hover:text-white bg-zinc-800 hover:bg-zinc-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               >
                 Fechar
               </button>
@@ -275,7 +314,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   href={project.demoUrl!}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-colors"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
                 >
                   <ExternalLink className="w-3.5 h-3.5" />
                   <span>Demonstração</span>
@@ -286,7 +325,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 href={project.codeUrl || project.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-bold bg-zinc-800 hover:bg-zinc-700 text-white border border-zinc-700 transition-colors shadow-md"
+                className="inline-flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-bold bg-zinc-800 hover:bg-zinc-700 text-white border border-zinc-700 transition-colors shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               >
                 <Github className="w-4 h-4 text-blue-400" />
                 <span>Ver Código no GitHub</span>

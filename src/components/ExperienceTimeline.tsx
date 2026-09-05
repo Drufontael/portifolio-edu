@@ -9,10 +9,10 @@ export default function ExperienceTimeline() {
         {/* Header with Elegant Dark Eyebrow */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 text-left">
           <div className="space-y-3 max-w-2xl">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500 flex items-center gap-2">
+            <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 flex items-center gap-2">
               <Briefcase className="w-3.5 h-3.5 text-blue-500" />
               <span>Histórico de Carreira e Atuação</span>
-            </h3>
+            </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
               Trajetória Técnica Detalhada
             </h2>
@@ -84,9 +84,9 @@ export default function ExperienceTimeline() {
 
                 {/* Bullets */}
                 <div className="space-y-2.5">
-                  <h4 className="text-xs font-bold uppercase tracking-widest text-zinc-500">
+                  <p className="text-xs font-bold uppercase tracking-widest text-zinc-500">
                     Principais Responsabilidades e Entregas:
-                  </h4>
+                  </p>
                   <ul className="space-y-2">
                     {exp.bullets.map((bullet, idx) => (
                       <li key={idx} className="flex items-start gap-3 text-sm text-zinc-300">

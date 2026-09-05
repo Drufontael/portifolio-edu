@@ -66,9 +66,9 @@ export default function Footer() {
 
           {/* Quick Navigation */}
           <div className="md:col-span-3 space-y-3 font-mono">
-            <h4 className="text-xs uppercase font-bold tracking-widest text-zinc-500">
+            <p className="text-xs uppercase font-bold tracking-widest text-zinc-500">
               Navegação
-            </h4>
+            </p>
             <ul className="space-y-2">
               <li>
                 <a href="#hero" className="hover:text-blue-400 focus-visible:outline-none focus-visible:text-blue-400 focus-visible:underline transition-colors">
@@ -112,9 +112,9 @@ export default function Footer() {
 
           {/* Location & Status */}
           <div className="md:col-span-4 space-y-3 font-mono">
-            <h4 className="text-xs uppercase font-bold tracking-widest text-zinc-500">
+            <p className="text-xs uppercase font-bold tracking-widest text-zinc-500">
               Disponibilidade e Localização
-            </h4>
+            </p>
             <div className="p-4 rounded-lg bg-zinc-900 border border-zinc-800 space-y-2">
               <div className="flex items-center gap-2 text-blue-400">
                 <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />

@@ -160,9 +160,9 @@ Tecnólogo em Análise e Desenvolvimento de Sistemas | Anhanguera Educacional (2
             
             {/* Header of Resume */}
             <div className="border-b border-zinc-800 pb-5 space-y-2 text-center sm:text-left">
-              <h1 id="curriculum-modal-title" className="text-2xl sm:text-3xl font-bold text-white tracking-wide">
+              <h2 id="curriculum-modal-title" className="text-2xl sm:text-3xl font-bold text-white tracking-wide">
                 EDUARDO ESTIGARRIBIA OLIVEIRA
-              </h1>
+              </h2>
               <p className="text-blue-400 font-mono font-bold text-sm sm:text-base tracking-wider uppercase">
                 DESENVOLVEDOR BACKEND JAVA | ANALISTA DE SISTEMAS
               </p>
@@ -181,9 +181,9 @@ Tecnólogo em Análise e Desenvolvimento de Sistemas | Anhanguera Educacional (2
 
             {/* Resumo Profissional */}
             <div className="space-y-2">
-              <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-500">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500">
                 RESUMO PROFISSIONAL
-              </h2>
+              </h3>
               <p className="text-zinc-300 leading-relaxed">
                 Desenvolvedor backend Java e Analista de Sistemas, em transição consolidada para tecnologia após 19 anos de atuação técnica especializada. Experiência prática na construção de APIs REST e aplicações web com Java, Spring Boot, Spring Security, JPA/Hibernate, PostgreSQL e Docker, incluindo autenticação, modelagem de domínio e integração entre backend e frontend. Combina raciocínio analítico, diagnóstico de falhas e comunicação com clientes com foco atual em arquitetura limpa, qualidade de código e evolução contínua de produtos de software.
               </p>
@@ -191,9 +191,9 @@ Tecnólogo em Análise e Desenvolvimento de Sistemas | Anhanguera Educacional (2
 
             {/* Competências Técnicas */}
             <div className="space-y-2">
-              <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-500">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500">
                 COMPETÊNCIAS TÉCNICAS
-              </h2>
+              </h3>
               <div className="space-y-1.5 text-zinc-300">
                 <p><strong className="text-white font-mono">Backend:</strong> Java, Spring Boot, Spring Security, Spring Data JPA, Hibernate, APIs REST, JWT</p>
                 <p><strong className="text-white font-mono">Dados e testes:</strong> PostgreSQL, MySQL, H2, MongoDB, Redis, JUnit 5, Mockito</p>
@@ -205,9 +205,9 @@ Tecnólogo em Análise e Desenvolvimento de Sistemas | Anhanguera Educacional (2
 
             {/* Experiência Profissional */}
             <div className="space-y-4">
-              <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-500">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500">
                 EXPERIÊNCIA PROFISSIONAL
-              </h2>
+              </h3>
 
               {/* MM Motors */}
               <div className="space-y-1.5">
@@ -239,9 +239,9 @@ Tecnólogo em Análise e Desenvolvimento de Sistemas | Anhanguera Educacional (2
 
             {/* Projetos Selecionados */}
             <div className="space-y-3">
-              <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-500">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500">
                 PROJETOS SELECIONADOS NO GITHUB
-              </h2>
+              </h3>
 
               <div className="space-y-2 text-zinc-300">
                 <div>
@@ -255,7 +255,7 @@ Tecnólogo em Análise e Desenvolvimento de Sistemas | Anhanguera Educacional (2
                   <p className="font-bold text-white">
                     Carshop — <span className="font-normal text-zinc-500">Java, Spring Boot, PostgreSQL, Docker, HATEOAS</span>
                   </p>
-                  <p className="text-zinc-400">API corporativa para gestão de veículos e clientes derivada da experiência na MM Motors, com documentação Swagger/OpenAPI e hipermídia HATEOAS.</p>
+                  <p className="text-zinc-400">API funcional para gestão de veículos e clientes inspirada na rotina comercial da MM Motors, com documentação Swagger/OpenAPI e hipermídia HATEOAS.</p>
                 </div>
 
                 <div>
@@ -269,9 +269,9 @@ Tecnólogo em Análise e Desenvolvimento de Sistemas | Anhanguera Educacional (2
 
             {/* Formação & Especializações */}
             <div className="space-y-2">
-              <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-500">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500">
                 FORMAÇÃO E CERTIFICAÇÕES
-              </h2>
+              </h3>
               <div className="space-y-1 text-zinc-300">
                 <p><strong className="text-white">Tecnólogo em Análise e Desenvolvimento de Sistemas</strong> — Anhanguera Educacional (Concluído em 2025)</p>
                 <p className="text-zinc-400">• Java e Spring Boot — Digital Innovation One (DIO)</p>

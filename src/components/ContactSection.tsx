@@ -26,10 +26,10 @@ export default function ContactSection() {
         
         {/* Section Header */}
         <div className="max-w-3xl mb-12 text-left">
-          <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-400 flex items-center gap-2 mb-2">
+          <p className="text-xs font-bold uppercase tracking-widest text-zinc-400 flex items-center gap-2 mb-2">
             <Mail className="w-3.5 h-3.5 text-blue-400" />
             <span>Contato Direto</span>
-          </h3>
+          </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
             Canais de Contato
           </h2>

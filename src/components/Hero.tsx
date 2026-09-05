@@ -42,7 +42,7 @@ export default function Hero({ onOpenCurriculum }: HeroProps) {
 
             {/* Short Value Proposition */}
             <p className="text-base sm:text-lg text-zinc-300 max-w-2xl leading-relaxed">
-              Desenvolvimento de APIs RESTful escaláveis e seguras com Java 21, Spring Boot e PostgreSQL. Foco em arquitetura limpa, cobertura de testes automatizados com JUnit 5 e Mockito, e resolução metódica de problemas construída em 19 anos de atuação técnica.
+              Desenvolvimento de APIs RESTful com Java, Spring Boot e PostgreSQL, aplicando autenticação, arquitetura limpa e testes automatizados com JUnit 5 e Mockito. Resolução metódica de problemas fundamentada em 19 anos de atuação técnica prévia.
             </p>
 
             {/* Exactly Three Actions: "Ver projetos", "Baixar currículo", "LinkedIn" */}
@@ -109,7 +109,7 @@ export default function Hero({ onOpenCurriculum }: HeroProps) {
                   [INFO] Ports &amp; Adapters architecture ready on :8080
                 </div>
                 <div className="text-emerald-400 pl-3 border-l-2 border-emerald-500/70 text-xs leading-relaxed font-medium">
-                  [INFO] Test Suite: 100% passing (JUnit 5 &amp; Mockito)
+                  [INFO] Build successful • automated tests passing
                 </div>
               </div>
 

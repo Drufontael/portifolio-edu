@@ -12,8 +12,6 @@ import {
   ArrowUpRight,
   GitCommit,
   ExternalLink,
-  Target,
-  UserCheck,
   Cpu,
   Clock,
   CheckCircle2,
@@ -114,10 +112,10 @@ export default function ProjectsSection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="space-y-3 max-w-2xl text-left">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500 flex items-center gap-2">
+            <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 flex items-center gap-2">
               <Terminal className="w-3.5 h-3.5 text-blue-500" />
               <span>Projetos em Destaque e Código Aberto</span>
-            </h3>
+            </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
               Projetos em Destaque e Repositórios
             </h2>
@@ -322,53 +320,22 @@ export default function ProjectsSection() {
                     </div>
                   )}
 
-                  {/* Blocos Estruturados: Problema, Contribuição de Eduardo e Decisão Técnica */}
-                  <div className="space-y-3 pt-2 border-t border-zinc-800">
-                    
-                    {/* Problema Resolvido */}
-                    {repo.problemSolved && (
-                      <div className="space-y-1 bg-zinc-950/60 p-3 rounded-lg border border-zinc-800/80">
-                        <div className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
-                          <Target className="w-3.5 h-3.5 text-red-400" />
-                          <span>Problema Resolvido</span>
-                        </div>
-                        <p className="text-xs text-zinc-300 leading-relaxed">
-                          {repo.problemSolved}
-                        </p>
+                  {/* Decisão Técnica Resumida */}
+                  {repo.mainTechnicalDecision && (
+                    <div className="p-3 rounded-lg bg-zinc-950/70 border border-zinc-800/80 text-xs text-zinc-300 leading-relaxed space-y-1">
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
+                        <Cpu className="w-3.5 h-3.5 text-purple-400" />
+                        <span>Decisão Técnica</span>
                       </div>
-                    )}
+                      <p className="line-clamp-2 text-zinc-300">
+                        {repo.mainTechnicalDecision}
+                      </p>
+                    </div>
+                  )}
 
-                    {/* Contribuição de Eduardo */}
-                    {repo.eduardoContribution && (
-                      <div className="space-y-1 bg-zinc-950/60 p-3 rounded-lg border border-zinc-800/80">
-                        <div className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
-                          <UserCheck className="w-3.5 h-3.5 text-blue-400" />
-                          <span>Contribuição de Eduardo</span>
-                        </div>
-                        <p className="text-xs text-zinc-300 leading-relaxed">
-                          {repo.eduardoContribution}
-                        </p>
-                      </div>
-                    )}
-
-                    {/* Principal Decisão Técnica */}
-                    {repo.mainTechnicalDecision && (
-                      <div className="space-y-1 bg-zinc-950/60 p-3 rounded-lg border border-zinc-800/80">
-                        <div className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
-                          <Cpu className="w-3.5 h-3.5 text-purple-400" />
-                          <span>Principal Decisão Técnica</span>
-                        </div>
-                        <p className="text-xs text-zinc-300 leading-relaxed">
-                          {repo.mainTechnicalDecision}
-                        </p>
-                      </div>
-                    )}
-
-                  </div>
-
-                  {/* Tecnologias */}
+                  {/* Principais Tecnologias */}
                   {repo.technologies && repo.technologies.length > 0 && (
-                    <div className="space-y-1.5 pt-2">
+                    <div className="space-y-1.5 pt-1">
                       <span className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider">
                         Tecnologias:
                       </span>
@@ -390,7 +357,7 @@ export default function ProjectsSection() {
                 <div className="pt-4 mt-6 border-t border-zinc-800 flex flex-wrap items-center justify-between gap-3">
                   <button
                     onClick={(e) => handleCopyClone(repo, e)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors border border-transparent hover:border-zinc-700"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors border border-transparent hover:border-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
                     title="Copiar comando de clone do repositório"
                   >
                     {isCopied ? (
@@ -408,8 +375,10 @@ export default function ProjectsSection() {
 
                   <div className="flex items-center gap-2">
                     <button
+                      id={`project-details-btn-${repo.name}`}
                       onClick={() => setSelectedProject(repo)}
-                      className="px-3 py-1.5 rounded-lg text-xs font-medium text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors"
+                      className="px-3 py-1.5 rounded-lg text-xs font-medium text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors border border-transparent hover:border-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+                      aria-label={`Ver detalhes do projeto ${projectTitle}`}
                     >
                       Detalhes
                     </button>

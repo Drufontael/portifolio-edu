@@ -30,6 +30,7 @@ export interface Repository {
 
   // Campos obrigatórios de apresentação de projeto
   problemSolved?: string;
+  problemLabel?: string;
   eduardoContribution?: string;
   mainTechnicalDecision?: string;
   technologies?: string[];

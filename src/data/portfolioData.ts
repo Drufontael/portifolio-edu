@@ -23,9 +23,9 @@ export const COMPETENCY_GROUPS: CompetencyGroup[] = [
     id: 'foco-principal',
     title: 'Foco Principal',
     shortTitle: 'Foco Principal',
-    badge: 'Núcleo de Especialização Backend',
+    badge: 'Tecnologias Centrais Backend',
     description:
-      'Tecnologias centrais no desenvolvimento diário de APIs robustas, arquitetura backend, persistência relacional e garantia de qualidade com testes automatizados.',
+      'Tecnologias centrais no desenvolvimento diário de APIs RESTful, arquitetura backend, persistência relacional e garantia de qualidade com testes automatizados.',
     technologies: [
       {
         name: 'Java',
@@ -40,7 +40,7 @@ export const COMPETENCY_GROUPS: CompetencyGroup[] = [
       {
         name: 'Spring Boot',
         usageContext:
-          'Construção de aplicações corporativas, injeção de dependências (IoC), configuração modularizada de beans, tratamento de exceções e gerenciamento de microsserviços.',
+          'Desenvolvimento de APIs RESTful, injeção de dependências (IoC), configuração modularizada de beans, tratamento centralizado de exceções e validação de requisições.',
         appliedProject: 'Our Recipes / Carshop',
         repoUrl: 'https://github.com/Drufontael/our-recipes',
         secondaryRepoUrl: 'https://github.com/Drufontael/carshop',
@@ -171,7 +171,7 @@ export const COMPETENCY_GROUPS: CompetencyGroup[] = [
     shortTitle: 'Conhecimento Complementar',
     badge: 'Ferramentas, Protocolos e Tecnologias de Apoio',
     description:
-      'Tecnologias, linguagens e ferramentas utilizadas em rotinas operacionais, estudos de arquitetura, disciplinas acadêmicas e especializações complementares.',
+      'Tecnologias, linguagens e ferramentas utilizadas em rotinas operacionais, estudos de arquitetura, disciplinas acadêmicas e cursos complementares.',
     technologies: [
       {
         name: 'Swagger / OpenAPI 3',
@@ -225,15 +225,15 @@ export const COMPETENCY_GROUPS: CompetencyGroup[] = [
         name: 'MySQL & H2 Database',
         usageContext:
           'Bancos relacionais auxiliares utilizados em prototipagem rápida, persistência em memória e testes de integração automatizados.',
-        appliedProject: 'Especialização Java e laboratórios práticos (DIO)',
+        appliedProject: 'Cursos de Java e laboratórios práticos (DIO)',
         repoUrl: null,
         categoryTag: 'Bancos Relacionais',
       },
       {
         name: 'OpenFeign',
         usageContext:
-          'Cliente HTTP declarativo no ecossistema Spring Cloud para comunicação síncrona entre microsserviços sem boilerplate de chamadas HTTP.',
-        appliedProject: 'Estudos de microsserviços e integração (DIO)',
+          'Cliente HTTP declarativo no ecossistema Spring Cloud para comunicação síncrona entre serviços sem boilerplate de chamadas HTTP.',
+        appliedProject: 'Estudos de integração de serviços (DIO)',
         repoUrl: null,
         categoryTag: 'Integração de Serviços',
       },
@@ -321,7 +321,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     bullets: [
       'Diagnóstico de falhas mecânicas e eletromecânicas com análise metódica de causas-raiz.',
       'Tomada de decisão técnica em campo em situações com exigência de pronto restabelecimento.',
-      'Atendimento técnico especializado a clientes corporativos e comunicação com equipes de campo.',
+      'Atendimento técnico a clientes e comunicação com equipes de campo.',
       'Elaboração de laudos técnicos detalhados e orientações preventivas para redução de paradas não programadas.',
     ],
     techStack: ['Análise de Causa-Raiz', 'Diagnóstico de Sistemas', 'Depuração Técnica', 'Decisão sob Pressão', 'Comunicação com Clientes'],
@@ -339,9 +339,9 @@ export const EDUCATION: EducationItem[] = [
   },
   {
     institution: 'Digital Innovation One (DIO)',
-    degree: 'Especialização Java & Spring Boot',
+    degree: 'Formação Java & Spring Boot',
     period: '2024',
-    details: 'Construção de APIs RESTful, Spring Security, JPA/Hibernate, injeção de dependências e microsserviços.',
+    details: 'Construção de APIs RESTful, Spring Security, JPA/Hibernate, injeção de dependências e arquitetura de serviços.',
   },
   {
     institution: 'Digital Innovation One (DIO)',
@@ -373,6 +373,7 @@ export const FEATURED_PROJECTS: Repository[] = [
     commits_count: 57,
     problemSolved:
       'Dispersão de receitas culinárias em anotações manuais e falta de padronização na categorização de ingredientes, porções e avaliações entre usuários.',
+    problemLabel: 'Problema abordado',
     eduardoContribution:
       'Concepção e desenvolvimento integral do backend em Java 21 e Spring Boot 3, modelagem do domínio, implementação de autenticação stateless com Spring Security e tokens JWT, conteinerização de todos os serviços com Docker Compose e elaboração de suíte de testes unitários com JUnit 5 e Mockito.',
     mainTechnicalDecision:
@@ -412,15 +413,16 @@ export const FEATURED_PROJECTS: Repository[] = [
     commits_count: 42,
     problemSolved:
       'Gargalos operacionais no controle de estoque automotivo, com informações descentralizadas de clientes, veículos em pátio e contratos de consignação.',
+    problemLabel: 'Problema abordado',
     eduardoContribution:
       'Mapeamento dos requisitos da rotina comercial na MM Motors, modelagem relacional no PostgreSQL, desenvolvimento dos endpoints RESTful em Java e Spring Boot com navegação HATEOAS, validação de regras de negócio e documentação Swagger/OpenAPI 3.0.',
     mainTechnicalDecision:
       'Implementação do padrão HATEOAS nos endpoints para habilitar hipermídia autodirigida nas respostas da API, permitindo aos clientes navegar entre veículos, contratos e clientes a partir de links semânticos retornados no JSON.',
     technologies: ['Java', 'Spring Boot', 'Spring Data JPA', 'PostgreSQL', 'Docker Compose', 'HATEOAS', 'Swagger / OpenAPI 3', 'JUnit 5'],
     status: {
-      label: 'Funcional (Uso Interno)',
+      label: 'Projeto funcional',
       type: 'functional',
-      stageDescription: 'API validada e utilizada localmente para apoio às rotinas comerciais e administrativas.',
+      stageDescription: 'API REST estruturada com Spring Boot, PostgreSQL, navegação HATEOAS e documentação Swagger/OpenAPI 3.0.',
     },
     highlights: [
       'Modelagem de dados para veículos, clientes e controle de contratos de consignação',
@@ -439,7 +441,7 @@ export const FEATURED_PROJECTS: Repository[] = [
     codeUrl: 'https://github.com/Drufontael/mykytadu-app',
     demoUrl: null,
     description:
-      'Aplicativo multiplataforma para organização e catálogo de animes, desenvolvido com Kotlin Multiplatform (KMP) e Compose Multiplatform para Android e Desktop.',
+      'Aplicativo multiplataforma para organização e catálogo de animes, em desenvolvimento com Kotlin Multiplatform (KMP) e Compose Multiplatform para Android e Desktop.',
     language: 'Kotlin',
     stargazers_count: 4,
     forks_count: 1,
@@ -447,26 +449,27 @@ export const FEATURED_PROJECTS: Repository[] = [
     updated_at: '2025-02-01T00:00:00Z',
     topics: ['kotlin-multiplatform', 'compose-multiplatform', 'koin', 'ktor-client', 'android', 'desktop'],
     is_featured: true,
-    architecture: 'Kotlin Multiplatform (KMP) + MVI Architecture',
+    architecture: 'Kotlin Multiplatform (KMP) & Compose Multiplatform',
     commits_count: 29,
     problemSolved:
-      'Necessidade de manter bases de código duplicadas para entregar uma experiência de catálogo consistente em dispositivos móveis Android e computadores desktop.',
+      'Estruturação de um cliente multiplataforma unificado para Android e Desktop compartilhando componentes visuais e infraestrutura de rede.',
+    problemLabel: 'Problema abordado',
     eduardoContribution:
-      'Construção da interface visual declarativa compartilhada com Compose Multiplatform, configuração do módulo comum com injeção de dependências via Koin, integração assíncrona de rede com Ktor Client e gerenciamento de estado previsível seguindo o padrão MVI.',
+      'Implementação da fundação KMP, criação do Design System com Compose Multiplatform, estruturação da navegação tipada e configuração de injeção de dependências com Koin e cliente HTTP Ktor.',
     mainTechnicalDecision:
-      'Utilização de Kotlin Multiplatform (KMP) e Compose Multiplatform, unificando regras de negócio, serialização e chamadas de rede no módulo comum (commonMain), permitindo reuso de cerca de 85% da base de código entre plataformas.',
-    technologies: ['Kotlin', 'Compose Multiplatform', 'Kotlin Multiplatform (KMP)', 'Koin (DI)', 'Ktor Client', 'Coroutines', 'MVI'],
+      'Utilização de Kotlin Multiplatform (KMP) e Compose Multiplatform para compartilhar componentes de interface, navegação e infraestrutura de rede no módulo comum (commonMain).',
+    technologies: ['Kotlin', 'Compose Multiplatform', 'Kotlin Multiplatform (KMP)', 'Koin (DI)', 'Ktor Client', 'Coroutines'],
     status: {
-      label: 'Funcional (Multiplataforma)',
-      type: 'functional',
-      stageDescription: 'Interface declarativa compartilhada entre Android e Desktop com navegação e consumo de API operacionais.',
+      label: 'Em desenvolvimento',
+      type: 'in_development',
+      stageDescription: 'Estrutura inicial multiplataforma (Compose Multiplatform e Koin) com tela principal e navegação básica. A integração completa com a API mykytadu-api e o fluxo de autenticação ainda não estão concluídos.',
     },
     highlights: [
-      'Compartilhamento de regras de negócio e camada de rede entre Android e Desktop',
-      'Interface construída com Compose Multiplatform com rotas tipadas',
-      'Injeção de dependências modular utilizando o framework Koin',
-      'Consumo assíncrono dos endpoints da API backend (mykytadu-api) via cliente HTTP Ktor',
-      'Padrão MVI para controle previsível de estados na interface do usuário',
+      'Fundação Kotlin Multiplatform (KMP) estruturada com módulo comum (commonMain)',
+      'Design System base desenvolvido com Compose Multiplatform para Android e Desktop',
+      'Infraestrutura de navegação tipada implementada entre fluxos de tela',
+      'Configuração de injeção de dependências modular com Koin',
+      'Estrutura de requisições HTTP assíncronas configurada com Ktor Client',
     ],
   },
   {
@@ -478,7 +481,7 @@ export const FEATURED_PROJECTS: Repository[] = [
     codeUrl: 'https://github.com/Drufontael/mykytadu-api',
     demoUrl: null,
     description:
-      'API RESTful backend para o ecossistema MykytaDu, responsável pelo fornecimento de catálogo de animes, persistência de dados, regras de negócio e endpoints para as aplicações cliente.',
+      'API RESTful backend planejada para o ecossistema MykytaDu, com estrutura inicial para futuro catálogo de animes, persistência relacional e regras de negócio.',
     language: 'Kotlin',
     stargazers_count: 2,
     forks_count: 0,
@@ -486,26 +489,28 @@ export const FEATURED_PROJECTS: Repository[] = [
     updated_at: '2025-02-05T00:00:00Z',
     topics: ['api-rest', 'backend', 'kotlin', 'postgresql', 'clean-architecture', 'docker'],
     is_featured: true,
-    architecture: 'API RESTful & Clean Architecture',
+    architecture: 'API RESTful & Clean Architecture (Em Estruturação)',
     commits_count: 34,
     problemSolved:
-      'Prover um serviço backend centralizado, desacoplado e persistente para alimentar o aplicativo cliente com catálogo de itens, categorias e listas sem sobrecarregar a camada móvel.',
+      'Fornecer um serviço backend centralizado para gerenciamento de catálogo, listas e informações de animes de forma desacoplada para as aplicações cliente.',
+    problemLabel: 'Problema que o projeto pretende resolver',
     eduardoContribution:
-      'Planejamento da arquitetura da API backend, definição da modelagem relacional no PostgreSQL, implementação da estrutura de endpoints RESTful com validação de dados e tratamento global de exceções.',
+      'Configuração da estrutura base do projeto com Kotlin e Gradle, organização inicial de pacotes seguindo Clean Architecture e ambiente Docker para PostgreSQL.',
     mainTechnicalDecision:
-      'Separação estrita entre o serviço backend (API) e o cliente visual (App), adotando Clean Architecture para permitir que regras de catálogo e persistência evoluam de forma independente do consumo de tela.',
-    technologies: ['Kotlin', 'Java', 'APIs RESTful', 'PostgreSQL', 'Docker', 'Clean Architecture'],
+      'Adoção preliminar de Clean Architecture para isolar a estrutura das futuras regras de negócio de frameworks e banco de dados, facilitando a evolução independente do backend.',
+    technologies: ['Kotlin', 'APIs RESTful', 'Clean Architecture', 'Gradle', 'Docker', 'PostgreSQL (Planejado)'],
     status: {
       label: 'Em Desenvolvimento',
       type: 'in_development',
-      stageDescription: 'Projeto em andamento: modelagem relacional e estruturação de endpoints em desenvolvimento; funcionalidades ainda não concluídas.',
+      stageDescription: 'Estrutura inicial configurada com Gradle e Docker; modelagem relacional, persistência e endpoints de catálogo permanecem em fase de planejamento e desenvolvimento.',
     },
     highlights: [
-      'API backend desenvolvida para gerenciamento de catálogo, listas e status de animes',
-      'Endpoints RESTful com paginação, filtros por gênero/temporada e busca textual',
-      'Modelagem relacional e persistência estruturada com controle transacional e integridade de dados',
-      'Tratamento global de exceções, validação de requisições e serialização JSON padronizada',
-      'Estrutura preparada para fornecer dados de forma desacoplada para o cliente mobile/desktop (mykytadu-app)',
+      'Implementado: Configuração da estrutura base do projeto com Kotlin e Gradle',
+      'Implementado: Definição preliminar de pacotes segundo princípios de Clean Architecture',
+      'Implementado: Configuração inicial de ambiente Docker para execução local',
+      'Planejado: Modelagem relacional definitiva e migrações no PostgreSQL',
+      'Planejado: Desenvolvimento dos endpoints RESTful de catálogo, filtros e paginação',
+      'Planejado: Tratamento global de exceções e testes automatizados',
     ],
   },
   {
@@ -528,7 +533,7 @@ export const FEATURED_PROJECTS: Repository[] = [
     architecture: 'Security Filter Chain & Token Provider',
     commits_count: 18,
     problemSolved:
-      'Necessidade de um template pré-configurado de segurança para novos microsserviços Spring Boot sem necessidade de reescrever lógica de autenticação JWT.',
+      'Necessidade de um template pré-configurado de segurança para novas APIs Spring Boot sem necessidade de reescrever lógica de autenticação JWT.',
     eduardoContribution:
       'Desenvolvimento do filtro customizado OncePerRequestFilter, geração e validação de tokens JWT criptografados e anotações de autorização por função.',
     mainTechnicalDecision:
