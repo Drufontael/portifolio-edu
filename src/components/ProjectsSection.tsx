@@ -127,11 +127,13 @@ export default function ProjectsSection() {
           {/* Quick Profile Link & Silent Metric Refresh */}
           <div className="flex items-center gap-2.5 self-start md:self-auto">
             <button
+              type="button"
               id="refresh-metrics-btn"
               onClick={() => syncMetrics(true)}
               disabled={isUpdatingMetrics}
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-mono text-zinc-400 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 hover:text-white transition-all disabled:opacity-50"
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-mono text-zinc-400 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 hover:text-white transition-all disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               title="Atualizar métricas de estrelas e commits via GitHub"
+              aria-label="Atualizar métricas de estrelas e commits via GitHub"
             >
               <RefreshCw className={`w-3.5 h-3.5 text-blue-400 ${isUpdatingMetrics ? 'animate-spin' : ''}`} />
               <span className="hidden sm:inline">Métricas GitHub</span>
@@ -142,7 +144,7 @@ export default function ProjectsSection() {
               href="https://github.com/Drufontael?tab=repositories"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 hover:text-white px-4 py-2 rounded-lg text-xs font-medium text-zinc-300 transition-colors"
+              className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 hover:text-white px-4 py-2 rounded-lg text-xs font-medium text-zinc-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
             >
               <Github className="w-3.5 h-3.5 text-blue-400" />
               <span>Ver no GitHub</span>
@@ -155,6 +157,7 @@ export default function ProjectsSection() {
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-8">
           <div className="flex flex-wrap items-center gap-1.5 p-1 bg-zinc-900 rounded-lg border border-zinc-800">
             <button
+              type="button"
               onClick={() => setActiveTab('all')}
               className={`px-3.5 py-1.5 rounded text-xs font-semibold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
                 activeTab === 'all'
@@ -165,6 +168,7 @@ export default function ProjectsSection() {
               Todos ({repositories.length})
             </button>
             <button
+              type="button"
               onClick={() => setActiveTab('functional')}
               className={`px-3.5 py-1.5 rounded text-xs font-semibold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
                 activeTab === 'functional'
@@ -175,6 +179,7 @@ export default function ProjectsSection() {
               Concluídos e Funcionais
             </button>
             <button
+              type="button"
               onClick={() => setActiveTab('in_development')}
               className={`px-3.5 py-1.5 rounded text-xs font-semibold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
                 activeTab === 'in_development'
@@ -185,6 +190,7 @@ export default function ProjectsSection() {
               Em Desenvolvimento
             </button>
             <button
+              type="button"
               onClick={() => setActiveTab('java')}
               className={`px-3.5 py-1.5 rounded text-xs font-semibold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
                 activeTab === 'java'
@@ -195,6 +201,7 @@ export default function ProjectsSection() {
               Java / Spring
             </button>
             <button
+              type="button"
               onClick={() => setActiveTab('kotlin')}
               className={`px-3.5 py-1.5 rounded text-xs font-semibold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
                 activeTab === 'kotlin'

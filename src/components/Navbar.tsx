@@ -20,6 +20,17 @@ export default function Navbar({ onOpenCurriculum }: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Handle escape key to close mobile menu
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { name: 'Projetos', href: '#projetos' },
     { name: 'Competências', href: '#competencias' },
@@ -41,9 +52,9 @@ export default function Navbar({ onOpenCurriculum }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand with Elegant Dark Monogram */}
         <a
-          href="#"
+          href="#hero"
           id="nav-brand-link"
-          className="flex items-center gap-3 group focus:outline-none"
+          className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-lg p-1 -m-1"
         >
           <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center font-bold text-lg text-white shadow-md shadow-blue-600/30 group-hover:bg-blue-500 transition-colors">
             E
@@ -79,6 +90,7 @@ export default function Navbar({ onOpenCurriculum }: NavbarProps) {
         {/* Action Buttons & Socials */}
         <div className="hidden sm:flex items-center gap-3">
           <button
+            type="button"
             id="nav-curriculum-btn"
             onClick={onOpenCurriculum}
             className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/80 hover:border-zinc-500 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 cursor-pointer"
@@ -93,6 +105,7 @@ export default function Navbar({ onOpenCurriculum }: NavbarProps) {
             href={PERSONAL_INFO.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Perfil de Eduardo Estigarribia no GitHub"
             className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
             title="GitHub @Drufontael"
           >
@@ -104,6 +117,7 @@ export default function Navbar({ onOpenCurriculum }: NavbarProps) {
             href={PERSONAL_INFO.linkedinUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Perfil de Eduardo Estigarribia no LinkedIn"
             className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
             title="LinkedIn Eduardo Estigarribia"
           >
@@ -125,18 +139,23 @@ export default function Navbar({ onOpenCurriculum }: NavbarProps) {
         {/* Mobile menu trigger */}
         <div className="flex sm:hidden items-center gap-2">
           <button
+            type="button"
             id="mobile-curriculum-btn"
             onClick={onOpenCurriculum}
-            className="p-2 text-xs font-medium rounded-lg bg-zinc-900 text-blue-400 border border-zinc-800"
+            className="p-2 text-xs font-medium rounded-lg bg-zinc-900 text-blue-400 border border-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+            aria-label="Visualizar currículo oficial"
             title="Currículo"
           >
             <FileText className="w-4 h-4" />
           </button>
           <button
+            type="button"
             id="mobile-menu-toggle"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg text-zinc-300 hover:text-white hover:bg-zinc-800"
-            aria-label="Abrir menu"
+            className="p-2 rounded-lg text-zinc-300 hover:text-white hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+            aria-label={mobileMenuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-nav-drawer"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -145,14 +164,17 @@ export default function Navbar({ onOpenCurriculum }: NavbarProps) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="sm:hidden border-b border-zinc-800 bg-zinc-950/98 backdrop-blur-xl px-4 pt-3 pb-6 space-y-3">
+        <div 
+          id="mobile-nav-drawer"
+          className="sm:hidden border-b border-zinc-800 bg-zinc-950/98 backdrop-blur-xl px-4 pt-3 pb-6 space-y-3"
+        >
           <div className="flex flex-col space-y-1">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2.5 rounded-lg text-sm font-semibold uppercase tracking-widest text-zinc-300 hover:bg-zinc-900 hover:text-blue-400"
+                className="px-3 py-2.5 rounded-lg text-sm font-semibold uppercase tracking-widest text-zinc-300 hover:bg-zinc-900 hover:text-blue-400 focus-visible:outline-none focus-visible:text-blue-400"
               >
                 {link.name}
               </a>
@@ -160,11 +182,12 @@ export default function Navbar({ onOpenCurriculum }: NavbarProps) {
           </div>
           <div className="pt-3 border-t border-zinc-800 flex flex-col gap-2">
             <button
+              type="button"
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenCurriculum();
               }}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-zinc-900 text-zinc-200 text-sm font-medium border border-zinc-800"
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-zinc-900 text-zinc-200 text-sm font-medium border border-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
             >
               <FileText className="w-4 h-4 text-blue-400" />
               Visualizar Currículo Completo
@@ -172,7 +195,7 @@ export default function Navbar({ onOpenCurriculum }: NavbarProps) {
             <a
               href="#contato"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold transition-colors"
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
             >
               <Mail className="w-4 h-4" />
               Canais de Contato
@@ -182,7 +205,8 @@ export default function Navbar({ onOpenCurriculum }: NavbarProps) {
                 href={PERSONAL_INFO.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-zinc-400 hover:text-white"
+                aria-label="Perfil de Eduardo no GitHub"
+                className="p-2 text-zinc-400 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded"
               >
                 <Github className="w-5 h-5" />
               </a>
@@ -190,7 +214,8 @@ export default function Navbar({ onOpenCurriculum }: NavbarProps) {
                 href={PERSONAL_INFO.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-zinc-400 hover:text-white"
+                aria-label="Perfil de Eduardo no LinkedIn"
+                className="p-2 text-zinc-400 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
