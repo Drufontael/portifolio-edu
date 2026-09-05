@@ -11,7 +11,7 @@ export default function ExperienceTimeline() {
           <div className="space-y-3 max-w-2xl">
             <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500 flex items-center gap-2">
               <Briefcase className="w-3.5 h-3.5 text-blue-500" />
-              <span>Career Journey & Professional Track</span>
+              <span>Histórico de Carreira e Atuação</span>
             </h3>
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
               Trajetória Técnica Detalhada
@@ -26,7 +26,7 @@ export default function ExperienceTimeline() {
             href={PERSONAL_INFO.linkedinUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-zinc-800 border border-zinc-700 hover:border-zinc-500 px-4 py-2 rounded-lg text-xs font-medium text-zinc-200 transition-colors self-start md:self-auto"
+            className="inline-flex items-center gap-2 bg-zinc-800 border border-zinc-700 hover:border-zinc-500 px-4 py-2 rounded-lg text-xs font-medium text-zinc-200 transition-colors self-start md:self-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
           >
             <Linkedin className="w-4 h-4 text-blue-400" />
             <span>Ver perfil no LinkedIn</span>
@@ -85,7 +85,7 @@ export default function ExperienceTimeline() {
                 {/* Bullets */}
                 <div className="space-y-2.5">
                   <h4 className="text-xs font-bold uppercase tracking-widest text-zinc-500">
-                    Principais Responsabilidades & Entregas:
+                    Principais Responsabilidades e Entregas:
                   </h4>
                   <ul className="space-y-2">
                     {exp.bullets.map((bullet, idx) => (
@@ -102,7 +102,7 @@ export default function ExperienceTimeline() {
                   <div className="p-3.5 rounded-lg bg-zinc-950 border border-zinc-800 text-xs sm:text-sm text-zinc-300 flex items-start gap-3">
                     <GitPullRequest className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-blue-400 font-semibold font-mono">Diferencial para Engenharia: </strong>
+                      <strong className="text-blue-400 font-semibold font-mono">Diferencial Prático: </strong>
                       <span className="text-zinc-300">{exp.transferableHighlight}</span>
                     </div>
                   </div>

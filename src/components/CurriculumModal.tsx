@@ -212,7 +212,7 @@ Tecnólogo em Análise e Desenvolvimento de Sistemas | Anhanguera Educacional (2
               {/* MM Motors */}
               <div className="space-y-1.5">
                 <div className="flex flex-wrap justify-between font-medium">
-                  <span className="text-white font-bold">Assistente de Vendas & Desenvolvedor de Software | MM Motors</span>
+                  <span className="text-white font-bold">Assistente de Vendas e Desenvolvedor de Software | MM Motors</span>
                   <span className="text-zinc-500 font-mono text-xs">2023 – fev. 2026</span>
                 </div>
                 <ul className="list-disc list-inside space-y-1 text-zinc-300 pl-1">
@@ -270,7 +270,7 @@ Tecnólogo em Análise e Desenvolvimento de Sistemas | Anhanguera Educacional (2
             {/* Formação & Especializações */}
             <div className="space-y-2">
               <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-500">
-                FORMAÇÃO & CERTIFICAÇÕES
+                FORMAÇÃO E CERTIFICAÇÕES
               </h2>
               <div className="space-y-1 text-zinc-300">
                 <p><strong className="text-white">Tecnólogo em Análise e Desenvolvimento de Sistemas</strong> — Anhanguera Educacional (Concluído em 2025)</p>

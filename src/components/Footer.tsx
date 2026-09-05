@@ -1,10 +1,12 @@
 import { Terminal, Github, Linkedin, Mail, Phone, ArrowUp } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { hasPublishedArticles } from '../services/blogService';
 
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+  const hasBlog = hasPublishedArticles();
 
   return (
     <footer className="bg-zinc-950 border-t border-zinc-800 pt-16 pb-12 text-zinc-400 text-xs">
@@ -22,7 +24,7 @@ export default function Footer() {
               <span className="font-bold text-white text-base">Eduardo Estigarribia</span>
             </div>
             <p className="text-zinc-400 max-w-sm leading-relaxed">
-              Desenvolvedor Backend Java e Analista de Sistemas. Unindo 19 anos de engenharia diagnóstica com arquitetura limpa, Spring Boot, PostgreSQL e Docker.
+              Desenvolvedor Backend Java e Analista de Sistemas. Desenvolvimento de APIs REST com Spring Boot, arquitetura limpa, bancos relacionais e testes automatizados.
             </p>
             <div className="pt-2 flex items-center gap-2">
               <a
@@ -69,30 +71,37 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <a href="#hero" className="hover:text-blue-400 transition-colors">
+                <a href="#hero" className="hover:text-blue-400 focus-visible:outline-none focus-visible:text-blue-400 focus-visible:underline transition-colors">
                   Início
                 </a>
               </li>
               <li>
-                <a href="#projetos" className="hover:text-blue-400 transition-colors">
-                  Projetos & Repositórios
+                <a href="#projetos" className="hover:text-blue-400 focus-visible:outline-none focus-visible:text-blue-400 focus-visible:underline transition-colors">
+                  Projetos e Repositórios
                 </a>
               </li>
               <li>
-                <a href="#sobre" className="hover:text-blue-400 transition-colors">
-                  Sobre Mim & Diferenciais
+                <a href="#competencias" className="hover:text-blue-400 focus-visible:outline-none focus-visible:text-blue-400 focus-visible:underline transition-colors">
+                  Competências Técnicas
                 </a>
               </li>
               <li>
-                <a href="#trajetoria" className="hover:text-blue-400 transition-colors">
-                  Trajetória Profissional
+                <a href="#sobre" className="hover:text-blue-400 focus-visible:outline-none focus-visible:text-blue-400 focus-visible:underline transition-colors">
+                  Sobre Mim e Trajetória
                 </a>
               </li>
               <li>
-                <a href="#blog" className="hover:text-blue-400 transition-colors">
-                  Blog de Engenharia
+                <a href="#trajetoria" className="hover:text-blue-400 focus-visible:outline-none focus-visible:text-blue-400 focus-visible:underline transition-colors">
+                  Experiência Profissional
                 </a>
               </li>
+              {hasBlog && (
+                <li>
+                  <a href="#blog" className="hover:text-blue-400 transition-colors">
+                    Artigos Técnicos
+                  </a>
+                </li>
+              )}
               <li>
                 <a href="#contato" className="hover:text-blue-400 transition-colors">
                   Contato Direto
@@ -104,7 +113,7 @@ export default function Footer() {
           {/* Location & Status */}
           <div className="md:col-span-4 space-y-3 font-mono">
             <h4 className="text-xs uppercase font-bold tracking-widest text-zinc-500">
-              Disponibilidade & Local
+              Disponibilidade e Localização
             </h4>
             <div className="p-4 rounded-lg bg-zinc-900 border border-zinc-800 space-y-2">
               <div className="flex items-center gap-2 text-blue-400">

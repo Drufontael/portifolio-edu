@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Github, Linkedin, Menu, X, FileText, Send } from 'lucide-react';
+import { Github, Linkedin, Menu, X, FileText, Mail } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { hasPublishedArticles } from '../services/blogService';
 
 interface NavbarProps {
   onOpenCurriculum: () => void;
@@ -9,6 +10,7 @@ interface NavbarProps {
 export default function Navbar({ onOpenCurriculum }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const hasBlog = hasPublishedArticles();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,11 +21,11 @@ export default function Navbar({ onOpenCurriculum }: NavbarProps) {
   }, []);
 
   const navLinks = [
-    { name: 'Competências', href: '#competencias' },
     { name: 'Projetos', href: '#projetos' },
+    { name: 'Competências', href: '#competencias' },
     { name: 'Sobre Mim', href: '#sobre' },
     { name: 'Trajetória', href: '#trajetoria' },
-    { name: 'Blog Técnico', href: '#blog' },
+    ...(hasBlog ? [{ name: 'Blog Técnico', href: '#blog' }] : []),
     { name: 'Contato', href: '#contato' },
   ];
 
@@ -67,7 +69,7 @@ export default function Navbar({ onOpenCurriculum }: NavbarProps) {
             <a
               key={link.name}
               href={link.href}
-              className="hover:text-blue-500 transition-colors py-1"
+              className="hover:text-blue-400 focus-visible:outline-none focus-visible:text-blue-400 focus-visible:ring-2 focus-visible:ring-blue-400 rounded transition-colors py-1"
             >
               {link.name}
             </a>
@@ -79,7 +81,7 @@ export default function Navbar({ onOpenCurriculum }: NavbarProps) {
           <button
             id="nav-curriculum-btn"
             onClick={onOpenCurriculum}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/80 hover:border-zinc-500 transition-all"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/80 hover:border-zinc-500 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 cursor-pointer"
             title="Ver Currículo em PDF"
           >
             <FileText className="w-3.5 h-3.5 text-blue-400" />
@@ -91,7 +93,7 @@ export default function Navbar({ onOpenCurriculum }: NavbarProps) {
             href={PERSONAL_INFO.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+            className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
             title="GitHub @Drufontael"
           >
             <Github className="w-4 h-4" />
@@ -102,7 +104,7 @@ export default function Navbar({ onOpenCurriculum }: NavbarProps) {
             href={PERSONAL_INFO.linkedinUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+            className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
             title="LinkedIn Eduardo Estigarribia"
           >
             <Linkedin className="w-4 h-4" />
@@ -114,7 +116,7 @@ export default function Navbar({ onOpenCurriculum }: NavbarProps) {
             href={PERSONAL_INFO.linkedinUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-zinc-100 text-zinc-950 px-4 py-1.5 rounded-full text-xs font-bold hover:bg-blue-600 hover:text-white transition-all shadow-sm"
+            className="bg-zinc-100 text-zinc-950 px-4 py-1.5 rounded-full text-xs font-bold hover:bg-blue-600 hover:text-white transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
           >
             Conectar
           </a>
@@ -168,15 +170,12 @@ export default function Navbar({ onOpenCurriculum }: NavbarProps) {
               Visualizar Currículo Completo
             </button>
             <a
-              href={`https://wa.me/${PERSONAL_INFO.cleanPhone}?text=${encodeURIComponent(
-                'Olá Eduardo, vi seu portfólio backend e gostaria de conversar sobre uma oportunidade.'
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contato"
+              onClick={() => setMobileMenuOpen(false)}
               className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold transition-colors"
             >
-              <Send className="w-4 h-4" />
-              Chamar no WhatsApp
+              <Mail className="w-4 h-4" />
+              Canais de Contato
             </a>
             <div className="flex justify-center gap-4 pt-2">
               <a

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import CompetenciesSection from './components/CompetenciesSection';
@@ -6,14 +6,59 @@ import ProjectsSection from './components/ProjectsSection';
 import AboutSection from './components/AboutSection';
 import ExperienceTimeline from './components/ExperienceTimeline';
 import BlogSection from './components/BlogSection';
+import ArticlePage from './components/ArticlePage';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import CurriculumModal from './components/CurriculumModal';
-import { MessageCircle } from 'lucide-react';
-import { PERSONAL_INFO } from './data/portfolioData';
+import { 
+  hasPublishedArticles, 
+  getArticleBySlug, 
+  parseArticleSlugFromHash 
+} from './services/blogService';
+import { BlogPost } from './types';
 
 export default function App() {
   const [curriculumModalOpen, setCurriculumModalOpen] = useState(false);
+  const [activeArticle, setActiveArticle] = useState<BlogPost | null>(null);
+  const hasBlog = hasPublishedArticles();
+
+  // Gerenciamento de rotas de artigos via hash (#artigo/:slug)
+  useEffect(() => {
+    const handleHashRouting = () => {
+      const slug = parseArticleSlugFromHash(window.location.hash);
+      if (slug) {
+        const found = getArticleBySlug(slug);
+        if (found) {
+          setActiveArticle(found);
+          return;
+        }
+      }
+      setActiveArticle(null);
+    };
+
+    // Avalia a rota no carregamento inicial
+    handleHashRouting();
+
+    window.addEventListener('hashchange', handleHashRouting);
+    return () => window.removeEventListener('hashchange', handleHashRouting);
+  }, []);
+
+  const handleBackFromArticle = () => {
+    setActiveArticle(null);
+    if (window.location.hash.startsWith('#artigo/')) {
+      window.location.hash = hasBlog ? '#blog' : '';
+    }
+  };
+
+  // Se houver um artigo ativo com URL própria, renderiza a página individual do artigo
+  if (activeArticle) {
+    return (
+      <ArticlePage
+        article={activeArticle}
+        onBack={handleBackFromArticle}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col selection:bg-blue-500/25 selection:text-blue-300">
@@ -25,11 +70,11 @@ export default function App() {
         {/* Hero Section */}
         <Hero onOpenCurriculum={() => setCurriculumModalOpen(true)} />
 
-        {/* Matriz de Competências Técnicas (posicionada acima dos projetos conforme solicitado) */}
-        <CompetenciesSection />
-
         {/* GitHub Projects Section */}
         <ProjectsSection />
+
+        {/* Matriz de Competências Técnicas */}
+        <CompetenciesSection />
 
         {/* About Me & Professional Profile */}
         <AboutSection />
@@ -37,8 +82,8 @@ export default function App() {
         {/* Experience Timeline (MM Motors & STEMAC S/A) */}
         <ExperienceTimeline />
 
-        {/* Engineering Blog */}
-        <BlogSection />
+        {/* Blog de Engenharia & Tecnologia (ativo apenas quando há artigos completos publicados) */}
+        {hasBlog && <BlogSection onSelectArticle={(post) => setActiveArticle(post)} />}
 
         {/* Conversion-Focused Contact Section */}
         <ContactSection />
@@ -52,25 +97,6 @@ export default function App() {
         isOpen={curriculumModalOpen}
         onClose={() => setCurriculumModalOpen(false)}
       />
-
-      {/* Floating Fast WhatsApp Conversion Button */}
-      <aside aria-label="Ações Rápidas de Contato">
-        <a
-          id="floating-whatsapp-btn"
-          href={`https://wa.me/${PERSONAL_INFO.cleanPhone}?text=${encodeURIComponent(
-            'Olá Eduardo, vi seu portfólio backend e gostaria de conversar sobre uma oportunidade.'
-          )}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="fixed bottom-6 right-6 z-40 p-3.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white shadow-xl shadow-blue-600/30 hover:scale-105 transition-all flex items-center gap-2 group border border-blue-400/30"
-          title="Falar diretamente no WhatsApp"
-        >
-          <MessageCircle className="w-5 h-5 fill-white" />
-          <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 text-xs font-bold font-mono pr-1">
-            Falar no WhatsApp
-          </span>
-        </a>
-      </aside>
     </div>
   );
 }
