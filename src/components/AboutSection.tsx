@@ -1,23 +1,18 @@
-import { useState } from 'react';
 import { 
   User, 
   ShieldCheck, 
-  Cpu, 
-  Search, 
-  CheckCircle2, 
   GraduationCap, 
   Award, 
   ExternalLink,
   Linkedin,
-  BookOpen,
   Zap,
-  Layers
+  Layers,
+  Search,
+  BookOpen
 } from 'lucide-react';
-import { PERSONAL_INFO, SKILL_CATEGORIES, EDUCATION } from '../data/portfolioData';
+import { PERSONAL_INFO, EDUCATION } from '../data/portfolioData';
 
 export default function AboutSection() {
-  const [activeCategory, setActiveCategory] = useState(0);
-
   return (
     <section id="sobre" className="py-20 md:py-28 bg-zinc-950 border-t border-zinc-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -130,78 +125,40 @@ export default function AboutSection() {
 
         </div>
 
-        {/* Technical Competencies Matrix */}
-        <div className="p-7 rounded-xl bg-zinc-900 border border-zinc-800 text-left">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-            <div>
-              <h3 className="text-xl font-bold text-white font-mono flex items-center gap-2">
-                <Cpu className="w-5 h-5 text-blue-400" />
-                <span>Matriz de Competências Técnicas</span>
-              </h3>
-              <p className="text-xs sm:text-sm text-zinc-400 mt-1">
-                Tecnologias, ferramentas e práticas consolidadas no dia a dia.
-              </p>
-            </div>
-
-            {/* Category selection tabs */}
-            <div className="flex flex-wrap gap-1.5 bg-zinc-950 p-1 rounded-lg border border-zinc-800">
-              {SKILL_CATEGORIES.map((cat, idx) => (
-                <button
-                  key={cat.category}
-                  onClick={() => setActiveCategory(idx)}
-                  className={`px-3 py-1.5 rounded text-xs font-semibold uppercase tracking-wider transition-all ${
-                    activeCategory === idx
-                      ? 'bg-blue-600 text-white shadow-sm'
-                      : 'text-zinc-400 hover:text-white hover:bg-zinc-800/60'
-                  }`}
-                >
-                  {cat.category.split('&')[0].trim()}
-                </button>
-              ))}
-            </div>
+        {/* Education & Certifications Row */}
+        <div className="pt-2">
+          <div className="mb-6 text-left">
+            <h3 className="text-xl font-bold text-white font-mono flex items-center gap-2">
+              <GraduationCap className="w-5 h-5 text-blue-400" />
+              <span>Formação Acadêmica & Certificações</span>
+            </h3>
+            <p className="text-xs sm:text-sm text-zinc-400 mt-1">
+              Base acadêmica em Análise de Sistemas e cursos de especialização contínua.
+            </p>
           </div>
 
-          {/* Active category skills grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {SKILL_CATEGORIES[activeCategory].skills.map((skill) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-left">
+            {EDUCATION.map((edu, idx) => (
               <div
-                key={skill.name}
-                className="p-3.5 rounded-lg bg-zinc-950 border border-zinc-800 flex items-center justify-between gap-3 hover:border-blue-500/40 transition-colors"
+                key={idx}
+                className="p-5 rounded-xl bg-zinc-900 border border-zinc-800 flex flex-col justify-between space-y-3"
               >
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
-                  <span className="text-sm font-medium text-zinc-200">{skill.name}</span>
+                <div className="space-y-2">
+                  <div className="w-8 h-8 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+                    {idx === 0 ? <GraduationCap className="w-4 h-4" /> : <Award className="w-4 h-4" />}
+                  </div>
+                  <span className="text-xs font-mono text-blue-400">{edu.period}</span>
+                  <h4 className="text-base font-bold text-white">{edu.degree}</h4>
+                  <p className="text-xs text-zinc-400 font-medium">{edu.institution}</p>
                 </div>
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-zinc-800 text-blue-400 border border-zinc-700">
-                  {skill.level}
-                </span>
+                {edu.details && (
+                  <p className="text-xs text-zinc-400 pt-2 border-t border-zinc-800">
+                    {edu.details}
+                  </p>
+                )}
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Education & Certifications Row */}
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5 text-left">
-          {EDUCATION.map((edu, idx) => (
-            <div
-              key={idx}
-              className="p-5 rounded-xl bg-zinc-900 border border-zinc-800 flex flex-col justify-between space-y-3"
-            >
-              <div className="space-y-2">
-                <div className="w-8 h-8 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
-                  {idx === 0 ? <GraduationCap className="w-4 h-4" /> : <Award className="w-4 h-4" />}
-                </div>
-                <span className="text-xs font-mono text-blue-400">{edu.period}</span>
-                <h4 className="text-base font-bold text-white">{edu.degree}</h4>
-                <p className="text-xs text-zinc-400 font-medium">{edu.institution}</p>
-              </div>
-              {edu.details && (
-                <p className="text-xs text-zinc-400 pt-2 border-t border-zinc-800">
-                  {edu.details}
-                </p>
-              )}
-            </div>
-          ))}
         </div>
 
       </div>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import CompetenciesSection from './components/CompetenciesSection';
 import ProjectsSection from './components/ProjectsSection';
 import AboutSection from './components/AboutSection';
 import ExperienceTimeline from './components/ExperienceTimeline';
@@ -24,10 +25,13 @@ export default function App() {
         {/* Hero Section */}
         <Hero onOpenCurriculum={() => setCurriculumModalOpen(true)} />
 
+        {/* Matriz de Competências Técnicas (posicionada acima dos projetos conforme solicitado) */}
+        <CompetenciesSection />
+
         {/* GitHub Projects Section */}
         <ProjectsSection />
 
-        {/* About Me & Technical Competencies */}
+        {/* About Me & Professional Profile */}
         <AboutSection />
 
         {/* Experience Timeline (MM Motors & STEMAC S/A) */}

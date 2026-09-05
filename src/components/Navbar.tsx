@@ -19,6 +19,7 @@ export default function Navbar({ onOpenCurriculum }: NavbarProps) {
   }, []);
 
   const navLinks = [
+    { name: 'Competências', href: '#competencias' },
     { name: 'Projetos', href: '#projetos' },
     { name: 'Sobre Mim', href: '#sobre' },
     { name: 'Trajetória', href: '#trajetoria' },

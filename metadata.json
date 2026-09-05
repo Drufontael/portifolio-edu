@@ -2,5 +2,7 @@
   "name": "Eduardo Estigarribia | Portfolio & Backend Engineer",
   "description": "Portfólio profissional de Eduardo Estigarribia Oliveira - Desenvolvedor Backend Java e Analista de Sistemas. Projetos práticos, repositórios GitHub, trajetória e blog de tecnologia.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

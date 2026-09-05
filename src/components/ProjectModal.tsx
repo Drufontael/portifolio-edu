@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { X, Github, ExternalLink, Copy, Check, Terminal, Layers, GitCommit } from 'lucide-react';
 import { Repository } from '../types';
 
@@ -9,6 +9,43 @@ interface ProjectModalProps {
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   const [copiedClone, setCopiedClone] = useState(false);
+
+  const handleCloseSafe = useCallback(() => {
+    if (window.history.state?.modalOpen === 'project') {
+      window.history.back();
+    } else {
+      onClose();
+    }
+  }, [onClose]);
+
+  useEffect(() => {
+    if (!project) return;
+
+    // Prevent background scrolling
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    // Handle Escape key
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        handleCloseSafe();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
+    // Push state so mobile/browser back button closes modal safely
+    window.history.pushState({ modalOpen: 'project' }, '');
+    const handlePopState = () => {
+      onClose();
+    };
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [project, onClose, handleCloseSafe]);
 
   if (!project) return null;
 
@@ -21,48 +58,58 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm overflow-y-auto">
-      <div 
-        className="relative w-full max-w-3xl rounded-xl bg-zinc-900 border border-zinc-800 shadow-2xl p-6 sm:p-8 space-y-6 my-8 text-left animate-in fade-in zoom-in-95 duration-200"
-        role="dialog"
-        aria-modal="true"
-      >
-        {/* Close button */}
-        <button
-          onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
-          aria-label="Fechar modal"
+    <div 
+      className="fixed inset-0 z-50 overflow-y-auto bg-black/90 backdrop-blur-md"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) handleCloseSafe();
+      }}
+      aria-labelledby="project-modal-title"
+      role="dialog"
+      aria-modal="true"
+    >
+      {/* Centering wrapper with min-h-full and items-start to prevent top clipping */}
+      <div className="min-h-full w-full flex items-start justify-center p-3 sm:p-6 py-6 sm:py-10">
+        <div 
+          className="relative w-full max-w-3xl rounded-xl bg-zinc-900 border border-zinc-800 shadow-2xl p-5 sm:p-8 space-y-6 text-left animate-in fade-in zoom-in-95 duration-200"
+          onClick={(e) => e.stopPropagation()}
         >
-          <X className="w-5 h-5" />
-        </button>
+          {/* Close button */}
+          <button
+            onClick={handleCloseSafe}
+            className="absolute top-5 right-5 p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+            aria-label="Fechar modal"
+            title="Fechar modal (Esc)"
+          >
+            <X className="w-5 h-5" />
+          </button>
 
-        {/* Header */}
-        <div className="space-y-2 pr-8">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="px-2.5 py-0.5 rounded text-xs font-mono font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
-              {project.language || 'Java'}
-            </span>
-            {project.architecture && (
-              <span className="px-2.5 py-0.5 rounded text-xs font-mono font-medium bg-zinc-800 text-zinc-300 border border-zinc-700">
-                {project.architecture}
+          {/* Header */}
+          <div className="space-y-2 pr-10">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="px-2.5 py-0.5 rounded text-xs font-mono font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                {project.language || 'Java'}
               </span>
-            )}
-            {project.commits_count && (
-              <span className="flex items-center gap-1 text-xs font-mono text-zinc-400 bg-zinc-800/80 px-2 py-0.5 rounded border border-zinc-700/60">
-                <GitCommit className="w-3 h-3 text-blue-400" />
-                {project.commits_count}+ commits
-              </span>
-            )}
+              {project.architecture && (
+                <span className="px-2.5 py-0.5 rounded text-xs font-mono font-medium bg-zinc-800 text-zinc-300 border border-zinc-700">
+                  {project.architecture}
+                </span>
+              )}
+              {project.commits_count && (
+                <span className="flex items-center gap-1 text-xs font-mono text-zinc-400 bg-zinc-800/80 px-2 py-0.5 rounded border border-zinc-700/60">
+                  <GitCommit className="w-3 h-3 text-blue-400" />
+                  {project.commits_count}+ commits
+                </span>
+              )}
+            </div>
+            <h2 id="project-modal-title" className="text-2xl sm:text-3xl font-bold text-white font-mono tracking-tight">
+              {project.name}
+            </h2>
+            <p className="text-zinc-300 text-sm sm:text-base leading-relaxed">
+              {project.description}
+            </p>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-white font-mono tracking-tight">
-            {project.name}
-          </h2>
-          <p className="text-zinc-300 text-sm sm:text-base leading-relaxed">
-            {project.description}
-          </p>
-        </div>
 
-        {/* Git Clone box */}
+          {/* Git Clone box */}
         <div className="p-3.5 rounded-lg bg-zinc-950 border border-zinc-800 space-y-1.5">
           <div className="flex items-center justify-between text-xs font-mono text-zinc-400">
             <span className="flex items-center gap-1.5">
@@ -133,7 +180,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
           <div className="flex items-center gap-3">
             <button
-              onClick={onClose}
+              onClick={handleCloseSafe}
               className="px-4 py-2 rounded-lg text-sm text-zinc-300 hover:text-white bg-zinc-800 hover:bg-zinc-700 transition-colors"
             >
               Fechar
@@ -153,5 +200,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
       </div>
     </div>
-  );
+  </div>
+);
 }
