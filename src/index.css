@@ -1,24 +1,38 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-dark: #18181B;
+  --color-brand-primary: #3B82F6;
+  --color-zinc-950: #18181B;
+  --color-blue-600: #3B82F6;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #18181B;
+    color: #f4f4f5;
   }
   
+  body {
+    background-color: #18181B;
+  }
+
   code, pre, .font-mono {
     font-family: 'Fira Code', ui-monospace, SFMono-Regular, monospace;
   }
 }
 
-/* Subtle tech grid background */
+/* Subtle tech grid background customized for #18181B */
 .bg-tech-grid {
   background-size: 36px 36px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
 }
 
 .bg-radial-glow {
-  background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.09) 0%, transparent 65%);
+  background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.14) 0%, transparent 65%);
 }
+

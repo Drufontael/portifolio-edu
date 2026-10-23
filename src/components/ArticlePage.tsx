@@ -44,7 +44,7 @@ export default function ArticlePage({ article, onBack }: ArticlePageProps) {
   const displayDate = article.publishedAt || article.date;
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#18181B] text-zinc-100 py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto space-y-8">
         
         {/* Top Navigation & Breadcrumbs */}
@@ -59,7 +59,7 @@ export default function ArticlePage({ article, onBack }: ArticlePageProps) {
             <ChevronRight className="w-3.5 h-3.5 text-zinc-600" />
             <span className="text-zinc-500">Artigos</span>
             <ChevronRight className="w-3.5 h-3.5 text-zinc-600" />
-            <span className="text-blue-400 truncate max-w-[200px] sm:max-w-xs">{article.title}</span>
+            <span className="text-[#3B82F6] truncate max-w-[200px] sm:max-w-xs">{article.title}</span>
           </div>
 
           <div className="flex items-center gap-3">
@@ -83,7 +83,7 @@ export default function ArticlePage({ article, onBack }: ArticlePageProps) {
 
             <button
               onClick={onBack}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-colors"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-[#3B82F6] hover:bg-blue-600 text-white transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Voltar</span>
@@ -97,7 +97,7 @@ export default function ArticlePage({ article, onBack }: ArticlePageProps) {
           {/* Article Header */}
           <header className="space-y-4">
             <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-zinc-400">
-              <span className="px-2.5 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20 font-medium">
+              <span className="px-2.5 py-0.5 rounded bg-[#3B82F6]/10 text-[#3B82F6] border border-[#3B82F6]/25 font-medium">
                 {article.category}
               </span>
               {displayDate && (
@@ -117,19 +117,19 @@ export default function ArticlePage({ article, onBack }: ArticlePageProps) {
               {article.title}
             </h1>
 
-            <p className="text-zinc-300 text-base sm:text-lg leading-relaxed border-l-2 border-blue-500 pl-4 py-1 italic bg-zinc-900/40 rounded-r-lg">
+            <p className="text-zinc-300 text-base sm:text-lg leading-relaxed border-l-2 border-[#3B82F6] pl-4 py-1 italic bg-zinc-900/40 rounded-r-lg">
               {article.summary}
             </p>
 
             {/* Author bar */}
             <div className="flex items-center justify-between gap-4 pt-4 border-t border-zinc-800/80">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center font-bold text-white text-base">
+                <div className="w-10 h-10 rounded-full bg-[#3B82F6] flex items-center justify-center font-bold text-white text-base">
                   E
                 </div>
                 <div>
                   <div className="text-sm font-semibold text-white flex items-center gap-1.5">
-                    <User className="w-3.5 h-3.5 text-blue-400" />
+                    <User className="w-3.5 h-3.5 text-[#3B82F6]" />
                     <span>{authorName}</span>
                   </div>
                   <div className="text-xs text-zinc-400 font-mono">
@@ -143,7 +143,7 @@ export default function ArticlePage({ article, onBack }: ArticlePageProps) {
                   href={article.externalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono text-blue-400 hover:text-blue-300 bg-blue-500/10 border border-blue-500/20 transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono text-[#3B82F6] hover:text-blue-300 bg-[#3B82F6]/10 border border-[#3B82F6]/25 transition-colors"
                 >
                   <span>Publicação Externa</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -172,7 +172,7 @@ export default function ArticlePage({ article, onBack }: ArticlePageProps) {
               if (paragraph.startsWith('- ')) {
                 return (
                   <div key={idx} className="flex items-start gap-2.5 pl-2 text-zinc-300">
-                    <span className="text-blue-400 mt-1">•</span>
+                    <span className="text-[#3B82F6] mt-1">•</span>
                     <span>{paragraph.replace('- ', '')}</span>
                   </div>
                 );
@@ -196,7 +196,7 @@ export default function ArticlePage({ article, onBack }: ArticlePageProps) {
           {article.tags && article.tags.length > 0 && (
             <footer className="pt-8 border-t border-zinc-800 space-y-3">
               <div className="flex items-center gap-1.5 text-xs font-mono text-zinc-500 uppercase tracking-wider">
-                <Tag className="w-3.5 h-3.5 text-blue-400" />
+                <Tag className="w-3.5 h-3.5 text-[#3B82F6]" />
                 <span>Tópicos e Tecnologias Abordadas:</span>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -223,7 +223,7 @@ export default function ArticlePage({ article, onBack }: ArticlePageProps) {
               </div>
               <button
                 onClick={onBack}
-                className="self-start sm:self-auto px-4 py-2 rounded-lg text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 transition-colors shadow-sm"
+                className="self-start sm:self-auto px-4 py-2 rounded-lg text-xs font-semibold text-white bg-[#3B82F6] hover:bg-blue-600 transition-colors shadow-sm"
               >
                 Voltar ao Portfólio
               </button>

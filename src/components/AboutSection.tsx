@@ -7,13 +7,13 @@ import { EDUCATION } from '../data/portfolioData';
 
 export default function AboutSection() {
   return (
-    <section id="sobre" className="py-16 md:py-24 bg-zinc-950 border-t border-zinc-800 relative">
+    <section id="sobre" className="py-16 md:py-24 bg-[#18181B] border-t border-zinc-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-10 text-left">
           <p className="text-xs font-bold uppercase tracking-widest text-zinc-400 flex items-center gap-2 mb-2">
-            <User className="w-3.5 h-3.5 text-blue-400" />
+            <User className="w-3.5 h-3.5 text-[#3B82F6]" />
             <span>Perfil Profissional</span>
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
@@ -35,7 +35,7 @@ export default function AboutSection() {
         <div className="pt-2">
           <div className="mb-6 text-left">
             <h3 className="text-lg sm:text-xl font-bold text-white font-mono flex items-center gap-2">
-              <GraduationCap className="w-5 h-5 text-blue-400" />
+              <GraduationCap className="w-5 h-5 text-[#3B82F6]" />
               <span>Formação Acadêmica e Certificações</span>
             </h3>
             <p className="text-xs sm:text-sm text-zinc-400 mt-1">
@@ -50,10 +50,10 @@ export default function AboutSection() {
                 className="p-5 rounded-xl bg-zinc-900 border border-zinc-800 flex flex-col justify-between space-y-3 shadow-md shadow-black/30"
               >
                 <div className="space-y-2">
-                  <div className="w-8 h-8 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+                  <div className="w-8 h-8 rounded-lg bg-[#3B82F6]/10 border border-[#3B82F6]/25 flex items-center justify-center text-[#3B82F6]">
                     {idx === 0 ? <GraduationCap className="w-4 h-4" /> : <Award className="w-4 h-4" />}
                   </div>
-                  <span className="text-xs font-mono text-blue-400">{edu.period}</span>
+                  <span className="text-xs font-mono text-[#3B82F6]">{edu.period}</span>
                   <h4 className="text-base font-bold text-white">{edu.degree}</h4>
                   <p className="text-xs text-zinc-400 font-medium">{edu.institution}</p>
                 </div>

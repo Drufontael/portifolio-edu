@@ -111,7 +111,7 @@ Tecnólogo em Análise e Desenvolvimento de Sistemas | Anhanguera Educacional (2
                 <ArrowLeft className="w-3.5 h-3.5" />
                 <span>Voltar</span>
               </button>
-              <span className="px-2.5 py-1 rounded text-xs font-mono font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
+              <span className="px-2.5 py-1 rounded text-xs font-mono font-medium bg-[#3B82F6]/10 text-[#3B82F6] border border-[#3B82F6]/25">
                 Currículo Oficial 2026
               </span>
             </div>
@@ -124,8 +124,8 @@ Tecnólogo em Análise e Desenvolvimento de Sistemas | Anhanguera Educacional (2
               >
                 {copied ? (
                   <>
-                    <Check className="w-3.5 h-3.5 text-blue-400" />
-                    <span className="text-blue-400">Copiado!</span>
+                    <Check className="w-3.5 h-3.5 text-[#3B82F6]" />
+                    <span className="text-[#3B82F6]">Copiado!</span>
                   </>
                 ) : (
                   <>
@@ -137,7 +137,7 @@ Tecnólogo em Análise e Desenvolvimento de Sistemas | Anhanguera Educacional (2
 
               <button
                 onClick={handlePrint}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold text-white bg-blue-600 hover:bg-blue-500 transition-colors shadow-md shadow-blue-600/20"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold text-white bg-[#3B82F6] hover:bg-blue-600 transition-colors shadow-md shadow-[#3B82F6]/25"
                 title="Imprimir ou salvar como PDF"
               >
                 <Printer className="w-3.5 h-3.5" />
@@ -156,26 +156,26 @@ Tecnólogo em Análise e Desenvolvimento de Sistemas | Anhanguera Educacional (2
           </div>
 
           {/* Printable Resume Container */}
-          <div className="bg-zinc-950 p-6 sm:p-8 rounded-lg border border-zinc-800 text-zinc-200 space-y-6 font-sans text-xs sm:text-sm">
+          <div className="bg-[#18181B] p-6 sm:p-8 rounded-lg border border-zinc-800 text-zinc-200 space-y-6 font-sans text-xs sm:text-sm">
             
             {/* Header of Resume */}
             <div className="border-b border-zinc-800 pb-5 space-y-2 text-center sm:text-left">
               <h2 id="curriculum-modal-title" className="text-2xl sm:text-3xl font-bold text-white tracking-wide">
                 EDUARDO ESTIGARRIBIA OLIVEIRA
               </h2>
-              <p className="text-blue-400 font-mono font-bold text-sm sm:text-base tracking-wider uppercase">
+              <p className="text-[#3B82F6] font-mono font-bold text-sm sm:text-base tracking-wider uppercase">
                 DESENVOLVEDOR BACKEND JAVA | ANALISTA DE SISTEMAS
               </p>
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-1 text-zinc-400 text-xs font-mono pt-1">
                 <span>Goiânia/GO (Presencial, Remoto e Híbrido)</span>
                 <span>•</span>
-                <a href={`tel:${PERSONAL_INFO.cleanPhone}`} className="hover:text-blue-400">{PERSONAL_INFO.phone}</a>
+                <a href={`tel:${PERSONAL_INFO.cleanPhone}`} className="hover:text-[#3B82F6]">{PERSONAL_INFO.phone}</a>
                 <span>•</span>
-                <a href={`mailto:${PERSONAL_INFO.email}`} className="hover:text-blue-400">{PERSONAL_INFO.email}</a>
+                <a href={`mailto:${PERSONAL_INFO.email}`} className="hover:text-[#3B82F6]">{PERSONAL_INFO.email}</a>
                 <span>•</span>
-                <a href={PERSONAL_INFO.linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">LinkedIn</a>
+                <a href={PERSONAL_INFO.linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-[#3B82F6] hover:underline">LinkedIn</a>
                 <span>•</span>
-                <a href={PERSONAL_INFO.githubUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">GitHub</a>
+                <a href={PERSONAL_INFO.githubUrl} target="_blank" rel="noopener noreferrer" className="text-[#3B82F6] hover:underline">GitHub</a>
               </div>
             </div>
 
@@ -296,7 +296,7 @@ Tecnólogo em Análise e Desenvolvimento de Sistemas | Anhanguera Educacional (2
               </button>
               <button
                 onClick={handleCloseSafe}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold text-white bg-blue-600 hover:bg-blue-500 transition-colors shadow-md shadow-blue-600/20"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold text-white bg-[#3B82F6] hover:bg-blue-600 transition-colors shadow-md shadow-[#3B82F6]/25"
               >
                 <X className="w-3.5 h-3.5" />
                 <span>Fechar Currículo</span>

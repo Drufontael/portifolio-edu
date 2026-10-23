@@ -3,14 +3,14 @@ import { EXPERIENCES, PERSONAL_INFO } from '../data/portfolioData';
 
 export default function ExperienceTimeline() {
   return (
-    <section id="trajetoria" className="py-20 md:py-28 bg-zinc-950 border-t border-zinc-800 relative">
+    <section id="trajetoria" className="py-20 md:py-28 bg-[#18181B] border-t border-zinc-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header with Elegant Dark Eyebrow */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 text-left">
           <div className="space-y-3 max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 flex items-center gap-2">
-              <Briefcase className="w-3.5 h-3.5 text-blue-500" />
+              <Briefcase className="w-3.5 h-3.5 text-[#3B82F6]" />
               <span>Histórico de Carreira e Atuação</span>
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
@@ -26,9 +26,9 @@ export default function ExperienceTimeline() {
             href={PERSONAL_INFO.linkedinUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-zinc-800 border border-zinc-700 hover:border-zinc-500 px-4 py-2 rounded-lg text-xs font-medium text-zinc-200 transition-colors self-start md:self-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+            className="inline-flex items-center gap-2 bg-zinc-800 border border-zinc-700 hover:border-zinc-500 px-4 py-2 rounded-lg text-xs font-medium text-zinc-200 transition-colors self-start md:self-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#18181B]"
           >
-            <Linkedin className="w-4 h-4 text-blue-400" />
+            <Linkedin className="w-4 h-4 text-[#3B82F6]" />
             <span>Ver perfil no LinkedIn</span>
             <ExternalLink className="w-3.5 h-3.5 text-zinc-400" />
           </a>
@@ -40,8 +40,8 @@ export default function ExperienceTimeline() {
           {EXPERIENCES.map((exp) => (
             <div key={exp.id} className="relative group">
               {/* Timeline marker node with Elegant Dark blue accent */}
-              <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-6 h-6 rounded-full bg-zinc-950 border-2 border-blue-500 flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform">
-                <div className="w-2 h-2 rounded-full bg-blue-500" />
+              <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-6 h-6 rounded-full bg-[#18181B] border-2 border-[#3B82F6] flex items-center justify-center shadow-lg shadow-[#3B82F6]/25 group-hover:scale-110 transition-transform">
+                <div className="w-2 h-2 rounded-full bg-[#3B82F6]" />
               </div>
 
               {/* Content Card */}
@@ -55,12 +55,12 @@ export default function ExperienceTimeline() {
                         {exp.role}
                       </h3>
                       {exp.badge && (
-                        <span className="px-2.5 py-0.5 rounded text-xs font-mono font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                        <span className="px-2.5 py-0.5 rounded text-xs font-mono font-medium bg-[#3B82F6]/10 text-[#3B82F6] border border-[#3B82F6]/25">
                           {exp.badge}
                         </span>
                       )}
                     </div>
-                    <p className="text-blue-400 font-semibold text-base mt-1">
+                    <p className="text-[#3B82F6] font-semibold text-base mt-1">
                       {exp.company}
                     </p>
                   </div>
@@ -90,7 +90,7 @@ export default function ExperienceTimeline() {
                   <ul className="space-y-2">
                     {exp.bullets.map((bullet, idx) => (
                       <li key={idx} className="flex items-start gap-3 text-sm text-zinc-300">
-                        <CheckCircle className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                        <CheckCircle className="w-4 h-4 text-[#3B82F6] shrink-0 mt-0.5" />
                         <span>{bullet}</span>
                       </li>
                     ))}
@@ -99,10 +99,10 @@ export default function ExperienceTimeline() {
 
                 {/* Transferable Seniority Callout */}
                 {exp.transferableHighlight && (
-                  <div className="p-3.5 rounded-lg bg-zinc-950 border border-zinc-800 text-xs sm:text-sm text-zinc-300 flex items-start gap-3">
-                    <GitPullRequest className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                  <div className="p-3.5 rounded-lg bg-[#18181B] border border-zinc-800 text-xs sm:text-sm text-zinc-300 flex items-start gap-3">
+                    <GitPullRequest className="w-4 h-4 text-[#3B82F6] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-blue-400 font-semibold font-mono">Diferencial Prático: </strong>
+                      <strong className="text-[#3B82F6] font-semibold font-mono">Diferencial Prático: </strong>
                       <span className="text-zinc-300">{exp.transferableHighlight}</span>
                     </div>
                   </div>

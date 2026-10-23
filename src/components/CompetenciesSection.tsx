@@ -23,23 +23,23 @@ export default function CompetenciesSection() {
   const getGroupIcon = (id: string) => {
     switch (id) {
       case 'foco-principal':
-        return <Server className="w-4 h-4 text-blue-400" />;
+        return <Server className="w-4 h-4 text-[#3B82F6]" />;
       case 'experiencia-pratica':
         return <ShieldCheck className="w-4 h-4 text-emerald-400" />;
       case 'conhecimento-complementar':
         return <BookOpen className="w-4 h-4 text-zinc-400" />;
       default:
-        return <Code2 className="w-4 h-4 text-blue-400" />;
+        return <Code2 className="w-4 h-4 text-[#3B82F6]" />;
     }
   };
 
   return (
-    <section id="competencias" className="py-20 md:py-24 bg-zinc-950 border-t border-zinc-800/80 relative">
+    <section id="competencias" className="py-20 md:py-24 bg-[#18181B] border-t border-zinc-800/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-10 text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono font-medium mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#3B82F6]/10 border border-[#3B82F6]/25 text-[#3B82F6] text-xs font-mono font-medium mb-3">
             <Layers className="w-3.5 h-3.5" />
             <span>Matriz de Competências & Evidências Técnicas</span>
           </div>
@@ -60,16 +60,16 @@ export default function CompetenciesSection() {
                 key={group.id}
                 id={`competency-tab-${group.id}`}
                 onClick={() => setActiveGroupIndex(idx)}
-                className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#18181B] ${
                   isActive
-                    ? 'bg-blue-600 text-white border-blue-500 shadow-md shadow-blue-600/20'
+                    ? 'bg-[#3B82F6] text-white border-[#3B82F6] shadow-md shadow-[#3B82F6]/25'
                     : 'bg-zinc-900/90 text-zinc-400 hover:text-white hover:bg-zinc-800 border-zinc-800'
                 }`}
               >
                 {getGroupIcon(group.id)}
                 <span>{group.shortTitle}</span>
                 <span className={`px-1.5 py-0.5 rounded text-[10px] font-mono ${
-                  isActive ? 'bg-blue-700 text-white' : 'bg-zinc-800 text-zinc-400'
+                  isActive ? 'bg-blue-600 text-white' : 'bg-zinc-800 text-zinc-400'
                 }`}>
                   {group.technologies.length}
                 </span>
@@ -80,7 +80,7 @@ export default function CompetenciesSection() {
           <button
             id="competency-tab-all"
             onClick={() => setActiveGroupIndex('all')}
-            className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
+            className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#18181B] ${
               activeGroupIndex === 'all'
                 ? 'bg-zinc-800 text-white border-zinc-600 shadow-sm'
                 : 'bg-zinc-900/50 text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900 border-zinc-800/60'
@@ -116,7 +116,7 @@ export default function CompetenciesSection() {
                 </div>
                 <div className="shrink-0 self-start sm:self-auto">
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono font-medium bg-zinc-800 text-zinc-300 border border-zinc-700/60">
-                    <Sparkles className="w-3 h-3 text-blue-400" />
+                    <Sparkles className="w-3 h-3 text-[#3B82F6]" />
                     <span>{group.badge}</span>
                   </span>
                 </div>
@@ -127,14 +127,14 @@ export default function CompetenciesSection() {
                 {group.technologies.map((tech) => (
                   <div
                     key={tech.name}
-                    className="p-5 rounded-xl bg-zinc-900 border border-zinc-800/90 hover:border-blue-500/40 transition-all duration-200 flex flex-col justify-between space-y-4 shadow-sm group"
+                    className="p-5 rounded-xl bg-zinc-900 border border-zinc-800/90 hover:border-[#3B82F6]/50 transition-all duration-200 flex flex-col justify-between space-y-4 shadow-sm group"
                   >
                     <div className="space-y-3">
                       
                       {/* Top: Name & Category Tag */}
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex items-center gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                          <CheckCircle2 className="w-4 h-4 text-[#3B82F6] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                           <h4 className="text-base font-bold text-white font-mono tracking-tight">
                             {tech.name}
                           </h4>
@@ -177,7 +177,7 @@ export default function CompetenciesSection() {
                               href={tech.repoUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono text-blue-400 hover:text-blue-300 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 transition-colors shrink-0"
+                              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono text-[#3B82F6] hover:text-blue-300 bg-[#3B82F6]/10 hover:bg-[#3B82F6]/20 border border-[#3B82F6]/25 transition-colors shrink-0"
                               title={`Acessar código-fonte no GitHub: ${tech.repoUrl}`}
                             >
                               <Github className="w-3 h-3" />
@@ -200,7 +200,7 @@ export default function CompetenciesSection() {
                             )}
                           </div>
                         ) : (
-                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-mono text-zinc-500 bg-zinc-950 border border-zinc-800/80">
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-mono text-zinc-500 bg-[#18181B] border border-zinc-800/80">
                             <span>Laboratório de estudos / especialização</span>
                           </span>
                         )}
@@ -225,7 +225,7 @@ export default function CompetenciesSection() {
             href="https://github.com/Drufontael?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 font-semibold shrink-0 transition-colors"
+            className="inline-flex items-center gap-1.5 text-[#3B82F6] hover:text-blue-300 font-semibold shrink-0 transition-colors"
           >
             <Github className="w-3.5 h-3.5" />
             <span>Explorar todos os repositórios</span>
