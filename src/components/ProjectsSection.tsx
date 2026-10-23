@@ -101,26 +101,26 @@ export default function ProjectsSection() {
       case 'kotlin':
         return 'bg-purple-500';
       default:
-        return 'bg-blue-400';
+        return 'bg-[#3B82F6]';
     }
   };
 
   return (
-    <section id="projetos" className="py-20 md:py-28 bg-zinc-950 border-t border-zinc-800 relative">
+    <section id="projetos" className="py-20 md:py-28 bg-[#18181B] border-t border-zinc-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="space-y-3 max-w-2xl text-left">
             <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 flex items-center gap-2">
-              <Terminal className="w-3.5 h-3.5 text-blue-500" />
+              <Terminal className="w-3.5 h-3.5 text-[#3B82F6]" />
               <span>Projetos em Destaque e Código Aberto</span>
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
               Projetos em Destaque e Repositórios
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-              Aplicações estruturadas com foco em arquitetura limpa, regras de negócio isoladas, persistência relacional e conteinerização. Repositórios disponíveis no GitHub <a href="https://github.com/Drufontael" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline font-mono">@Drufontael</a>.
+              Aplicações estruturadas com foco em arquitetura limpa, regras de negócio isoladas, persistência relacional e conteinerização. Repositórios disponíveis no GitHub <a href="https://github.com/Drufontael" target="_blank" rel="noopener noreferrer" className="text-[#3B82F6] hover:underline font-mono">@Drufontael</a>.
             </p>
           </div>
 
@@ -131,11 +131,11 @@ export default function ProjectsSection() {
               id="refresh-metrics-btn"
               onClick={() => syncMetrics(true)}
               disabled={isUpdatingMetrics}
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-mono text-zinc-400 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 hover:text-white transition-all disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-mono text-zinc-400 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 hover:text-white transition-all disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
               title="Atualizar métricas de estrelas e commits via GitHub"
               aria-label="Atualizar métricas de estrelas e commits via GitHub"
             >
-              <RefreshCw className={`w-3.5 h-3.5 text-blue-400 ${isUpdatingMetrics ? 'animate-spin' : ''}`} />
+              <RefreshCw className={`w-3.5 h-3.5 text-[#3B82F6] ${isUpdatingMetrics ? 'animate-spin' : ''}`} />
               <span className="hidden sm:inline">Métricas GitHub</span>
             </button>
 
@@ -144,9 +144,9 @@ export default function ProjectsSection() {
               href="https://github.com/Drufontael?tab=repositories"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 hover:text-white px-4 py-2 rounded-lg text-xs font-medium text-zinc-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+              className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 hover:text-white px-4 py-2 rounded-lg text-xs font-medium text-zinc-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
             >
-              <Github className="w-3.5 h-3.5 text-blue-400" />
+              <Github className="w-3.5 h-3.5 text-[#3B82F6]" />
               <span>Ver no GitHub</span>
               <ArrowUpRight className="w-3 h-3 text-zinc-500" />
             </a>
@@ -159,9 +159,9 @@ export default function ProjectsSection() {
             <button
               type="button"
               onClick={() => setActiveTab('all')}
-              className={`px-3.5 py-1.5 rounded text-xs font-semibold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
+              className={`px-3.5 py-1.5 rounded text-xs font-semibold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#18181B] ${
                 activeTab === 'all'
-                  ? 'bg-blue-600 text-white shadow-sm'
+                  ? 'bg-[#3B82F6] text-white shadow-sm'
                   : 'text-zinc-400 hover:text-white hover:bg-zinc-800'
               }`}
             >
@@ -170,9 +170,9 @@ export default function ProjectsSection() {
             <button
               type="button"
               onClick={() => setActiveTab('functional')}
-              className={`px-3.5 py-1.5 rounded text-xs font-semibold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
+              className={`px-3.5 py-1.5 rounded text-xs font-semibold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#18181B] ${
                 activeTab === 'functional'
-                  ? 'bg-blue-600 text-white shadow-sm'
+                  ? 'bg-[#3B82F6] text-white shadow-sm'
                   : 'text-zinc-400 hover:text-white hover:bg-zinc-800'
               }`}
             >
@@ -181,7 +181,7 @@ export default function ProjectsSection() {
             <button
               type="button"
               onClick={() => setActiveTab('in_development')}
-              className={`px-3.5 py-1.5 rounded text-xs font-semibold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
+              className={`px-3.5 py-1.5 rounded text-xs font-semibold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#18181B] ${
                 activeTab === 'in_development'
                   ? 'bg-amber-600 text-white shadow-sm'
                   : 'text-zinc-400 hover:text-white hover:bg-zinc-800'
@@ -192,9 +192,9 @@ export default function ProjectsSection() {
             <button
               type="button"
               onClick={() => setActiveTab('java')}
-              className={`px-3.5 py-1.5 rounded text-xs font-semibold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
+              className={`px-3.5 py-1.5 rounded text-xs font-semibold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#18181B] ${
                 activeTab === 'java'
-                  ? 'bg-blue-600 text-white shadow-sm'
+                  ? 'bg-[#3B82F6] text-white shadow-sm'
                   : 'text-zinc-400 hover:text-white hover:bg-zinc-800'
               }`}
             >
@@ -203,9 +203,9 @@ export default function ProjectsSection() {
             <button
               type="button"
               onClick={() => setActiveTab('kotlin')}
-              className={`px-3.5 py-1.5 rounded text-xs font-semibold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
+              className={`px-3.5 py-1.5 rounded text-xs font-semibold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#18181B] ${
                 activeTab === 'kotlin'
-                  ? 'bg-blue-600 text-white shadow-sm'
+                  ? 'bg-[#3B82F6] text-white shadow-sm'
                   : 'text-zinc-400 hover:text-white hover:bg-zinc-800'
               }`}
             >
@@ -222,7 +222,7 @@ export default function ProjectsSection() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Buscar por nome, problema, tech..."
-              className="w-full pl-9 pr-4 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-xs text-zinc-200 placeholder:text-zinc-500 focus:outline-none focus:border-blue-500 focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 transition-colors"
+              className="w-full pl-9 pr-4 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-xs text-zinc-200 placeholder:text-zinc-500 focus:outline-none focus:border-[#3B82F6] focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#18181B] transition-colors"
             />
           </div>
         </div>
@@ -241,7 +241,7 @@ export default function ProjectsSection() {
                 className={`bg-zinc-900 border rounded-xl p-6 flex flex-col justify-between text-left transition-all duration-200 shadow-md shadow-black/40 ${
                   isDev 
                     ? 'border-amber-500/30 hover:border-amber-500/60' 
-                    : 'border-zinc-800 hover:border-blue-500/50'
+                    : 'border-zinc-800 hover:border-[#3B82F6]/50'
                 }`}
               >
                 {/* Header: Title, Language, Status & Dynamic Metrics */}
@@ -279,11 +279,11 @@ export default function ProjectsSection() {
                     </div>
 
                     {/* Dynamic Metrics (Stars, Commits, discreet update indicator) */}
-                    <div className="flex items-center gap-2.5 text-xs font-mono text-zinc-400 bg-zinc-950 px-2.5 py-1.5 rounded-lg border border-zinc-800">
+                    <div className="flex items-center gap-2.5 text-xs font-mono text-zinc-400 bg-[#18181B] px-2.5 py-1.5 rounded-lg border border-zinc-800">
                       {isUpdatingMetrics && (
                         <span
                           title="Atualizando métricas em segundo plano via GitHub..."
-                          className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"
+                          className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] animate-pulse"
                         />
                       )}
                       {repo.stargazers_count > 0 && (
@@ -294,7 +294,7 @@ export default function ProjectsSection() {
                       )}
                       {repo.commits_count && (
                         <span className="flex items-center gap-1 text-zinc-300">
-                          <GitCommit className="w-3.5 h-3.5 text-blue-400" />
+                          <GitCommit className="w-3.5 h-3.5 text-[#3B82F6]" />
                           <span>{repo.commits_count} commits</span>
                         </span>
                       )}
@@ -303,7 +303,7 @@ export default function ProjectsSection() {
 
                   {/* Architecture Tag */}
                   {repo.architecture && (
-                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-mono bg-[#3B82F6]/10 text-[#3B82F6] border border-[#3B82F6]/25">
                       <Layers className="w-3.5 h-3.5" />
                       <span>{repo.architecture}</span>
                     </div>
@@ -329,7 +329,7 @@ export default function ProjectsSection() {
 
                   {/* Decisão Técnica Resumida */}
                   {repo.mainTechnicalDecision && (
-                    <div className="p-3 rounded-lg bg-zinc-950/70 border border-zinc-800/80 text-xs text-zinc-300 leading-relaxed space-y-1">
+                    <div className="p-3 rounded-lg bg-[#18181B]/80 border border-zinc-800/80 text-xs text-zinc-300 leading-relaxed space-y-1">
                       <div className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
                         <Cpu className="w-3.5 h-3.5 text-purple-400" />
                         <span>Decisão Técnica</span>
@@ -364,7 +364,7 @@ export default function ProjectsSection() {
                 <div className="pt-4 mt-6 border-t border-zinc-800 flex flex-wrap items-center justify-between gap-3">
                   <button
                     onClick={(e) => handleCopyClone(repo, e)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors border border-transparent hover:border-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors border border-transparent hover:border-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
                     title="Copiar comando de clone do repositório"
                   >
                     {isCopied ? (
@@ -384,7 +384,7 @@ export default function ProjectsSection() {
                     <button
                       id={`project-details-btn-${repo.name}`}
                       onClick={() => setSelectedProject(repo)}
-                      className="px-3 py-1.5 rounded-lg text-xs font-medium text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors border border-transparent hover:border-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+                      className="px-3 py-1.5 rounded-lg text-xs font-medium text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors border border-transparent hover:border-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
                       aria-label={`Ver detalhes do projeto ${projectTitle}`}
                     >
                       Detalhes
@@ -396,7 +396,7 @@ export default function ProjectsSection() {
                         href={repo.demoUrl!}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#3B82F6] hover:bg-blue-600 text-white transition-colors"
                       >
                         <ExternalLink className="w-3.5 h-3.5" />
                         <span>Demonstração</span>
@@ -410,7 +410,7 @@ export default function ProjectsSection() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-zinc-800 hover:bg-zinc-700 text-zinc-100 hover:text-white border border-zinc-700 transition-colors"
                     >
-                      <Github className="w-3.5 h-3.5 text-blue-400" />
+                      <Github className="w-3.5 h-3.5 text-[#3B82F6]" />
                       <span>Ver Código</span>
                     </a>
                   </div>
@@ -431,7 +431,7 @@ export default function ProjectsSection() {
                 setActiveTab('all');
                 setSearchQuery('');
               }}
-              className="mt-3 text-xs text-blue-400 hover:underline font-mono"
+              className="mt-3 text-xs text-[#3B82F6] hover:underline font-mono"
             >
               Restaurar lista de projetos
             </button>

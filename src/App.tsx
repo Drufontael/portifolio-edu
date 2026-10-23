@@ -61,7 +61,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col selection:bg-blue-500/25 selection:text-blue-300">
+    <div className="min-h-screen bg-[#18181B] text-zinc-100 flex flex-col selection:bg-[#3B82F6]/30 selection:text-white">
       {/* Navigation Header */}
       <Navbar onOpenCurriculum={() => setCurriculumModalOpen(true)} />
 

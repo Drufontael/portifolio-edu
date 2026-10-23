@@ -21,13 +21,13 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contato" className="py-16 md:py-24 bg-zinc-950 border-t border-zinc-800 relative">
+    <section id="contato" className="py-16 md:py-24 bg-[#18181B] border-t border-zinc-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-12 text-left">
           <p className="text-xs font-bold uppercase tracking-widest text-zinc-400 flex items-center gap-2 mb-2">
-            <Mail className="w-3.5 h-3.5 text-blue-400" />
+            <Mail className="w-3.5 h-3.5 text-[#3B82F6]" />
             <span>Contato Direto</span>
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
@@ -44,7 +44,7 @@ export default function ContactSection() {
           {/* E-mail Card */}
           <div className="p-6 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-zinc-700 transition-all flex flex-col justify-between space-y-5 shadow-md shadow-black/40">
             <div className="space-y-3">
-              <div className="w-12 h-12 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+              <div className="w-12 h-12 rounded-lg bg-[#3B82F6]/10 border border-[#3B82F6]/25 flex items-center justify-center text-[#3B82F6]">
                 <Mail className="w-6 h-6" />
               </div>
               <div>
@@ -59,7 +59,7 @@ export default function ContactSection() {
               <a
                 id="contact-email-link"
                 href={`mailto:${PERSONAL_INFO.email}`}
-                className="flex-1 inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+                className="flex-1 inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#3B82F6] hover:bg-blue-600 text-white font-semibold text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#18181B]"
               >
                 <span>Enviar E-mail</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -68,7 +68,7 @@ export default function ContactSection() {
               <button
                 id="contact-copy-email-btn"
                 onClick={handleCopyEmail}
-                className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 hover:text-white border border-zinc-700 text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 cursor-pointer"
+                className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 hover:text-white border border-zinc-700 text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#18181B] cursor-pointer"
                 title="Copiar endereço de e-mail"
                 aria-label="Copiar endereço de e-mail"
               >
@@ -90,7 +90,7 @@ export default function ContactSection() {
           {/* LinkedIn Card */}
           <div className="p-6 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-zinc-700 transition-all flex flex-col justify-between space-y-5 shadow-md shadow-black/40">
             <div className="space-y-3">
-              <div className="w-12 h-12 rounded-lg bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+              <div className="w-12 h-12 rounded-lg bg-[#3B82F6]/10 border border-[#3B82F6]/25 flex items-center justify-center text-[#3B82F6]">
                 <Linkedin className="w-6 h-6" />
               </div>
               <div>
@@ -107,7 +107,7 @@ export default function ContactSection() {
                 href={PERSONAL_INFO.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-100 hover:text-white border border-zinc-700 font-semibold text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+                className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-100 hover:text-white border border-zinc-700 font-semibold text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#18181B]"
               >
                 <span>Conectar no LinkedIn</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -137,7 +137,7 @@ export default function ContactSection() {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-100 hover:text-white border border-zinc-700 font-semibold text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+                className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-100 hover:text-white border border-zinc-700 font-semibold text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#18181B]"
               >
                 <span>Conversar no WhatsApp</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -150,11 +150,11 @@ export default function ContactSection() {
         {/* Availability & Location Callout */}
         <div className="p-4 rounded-lg bg-zinc-900/70 border border-zinc-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-zinc-300 font-mono">
           <div className="flex items-center gap-2">
-            <MapPin className="w-4 h-4 text-blue-400 shrink-0" />
+            <MapPin className="w-4 h-4 text-[#3B82F6] shrink-0" />
             <span>Goiânia, GO • Disponível para modelos Presencial, Remoto e Híbrido</span>
           </div>
           <div className="flex items-center gap-2 text-zinc-400">
-            <Clock className="w-4 h-4 text-blue-400 shrink-0" />
+            <Clock className="w-4 h-4 text-[#3B82F6] shrink-0" />
             <span>Horário comercial de Brasília (UTC-3)</span>
           </div>
         </div>

@@ -9,7 +9,7 @@ export default function Footer() {
   const hasBlog = hasPublishedArticles();
 
   return (
-    <footer className="bg-zinc-950 border-t border-zinc-800 pt-16 pb-12 text-zinc-400 text-xs">
+    <footer className="bg-[#18181B] border-t border-zinc-800 pt-16 pb-12 text-zinc-400 text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Main Footer Row */}
@@ -18,7 +18,7 @@ export default function Footer() {
           {/* Brand info */}
           <div className="md:col-span-5 space-y-3">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded bg-blue-600 flex items-center justify-center font-mono font-bold text-white text-base">
+              <div className="w-8 h-8 rounded bg-[#3B82F6] flex items-center justify-center font-mono font-bold text-white text-base shadow-sm shadow-[#3B82F6]/30">
                 E
               </div>
               <span className="font-bold text-white text-base">Eduardo Estigarribia</span>
@@ -56,7 +56,7 @@ export default function Footer() {
                 href={`https://wa.me/${PERSONAL_INFO.cleanPhone}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded bg-zinc-900 hover:bg-zinc-800 text-blue-400 hover:text-blue-300 border border-zinc-800 transition-colors"
+                className="p-2 rounded bg-zinc-900 hover:bg-zinc-800 text-[#3B82F6] hover:text-blue-300 border border-zinc-800 transition-colors"
                 title="WhatsApp direto"
               >
                 <Phone className="w-4 h-4" />
@@ -71,39 +71,39 @@ export default function Footer() {
             </p>
             <ul className="space-y-2">
               <li>
-                <a href="#hero" className="hover:text-blue-400 focus-visible:outline-none focus-visible:text-blue-400 focus-visible:underline transition-colors">
+                <a href="#hero" className="hover:text-[#3B82F6] focus-visible:outline-none focus-visible:text-[#3B82F6] focus-visible:underline transition-colors">
                   Início
                 </a>
               </li>
               <li>
-                <a href="#projetos" className="hover:text-blue-400 focus-visible:outline-none focus-visible:text-blue-400 focus-visible:underline transition-colors">
+                <a href="#projetos" className="hover:text-[#3B82F6] focus-visible:outline-none focus-visible:text-[#3B82F6] focus-visible:underline transition-colors">
                   Projetos e Repositórios
                 </a>
               </li>
               <li>
-                <a href="#competencias" className="hover:text-blue-400 focus-visible:outline-none focus-visible:text-blue-400 focus-visible:underline transition-colors">
+                <a href="#competencias" className="hover:text-[#3B82F6] focus-visible:outline-none focus-visible:text-[#3B82F6] focus-visible:underline transition-colors">
                   Competências Técnicas
                 </a>
               </li>
               <li>
-                <a href="#sobre" className="hover:text-blue-400 focus-visible:outline-none focus-visible:text-blue-400 focus-visible:underline transition-colors">
+                <a href="#sobre" className="hover:text-[#3B82F6] focus-visible:outline-none focus-visible:text-[#3B82F6] focus-visible:underline transition-colors">
                   Sobre Mim e Trajetória
                 </a>
               </li>
               <li>
-                <a href="#trajetoria" className="hover:text-blue-400 focus-visible:outline-none focus-visible:text-blue-400 focus-visible:underline transition-colors">
+                <a href="#trajetoria" className="hover:text-[#3B82F6] focus-visible:outline-none focus-visible:text-[#3B82F6] focus-visible:underline transition-colors">
                   Experiência Profissional
                 </a>
               </li>
               {hasBlog && (
                 <li>
-                  <a href="#blog" className="hover:text-blue-400 transition-colors">
+                  <a href="#blog" className="hover:text-[#3B82F6] transition-colors">
                     Artigos Técnicos
                   </a>
                 </li>
               )}
               <li>
-                <a href="#contato" className="hover:text-blue-400 transition-colors">
+                <a href="#contato" className="hover:text-[#3B82F6] transition-colors">
                   Contato Direto
                 </a>
               </li>
@@ -116,8 +116,8 @@ export default function Footer() {
               Disponibilidade e Localização
             </p>
             <div className="p-4 rounded-lg bg-zinc-900 border border-zinc-800 space-y-2">
-              <div className="flex items-center gap-2 text-blue-400">
-                <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+              <div className="flex items-center gap-2 text-[#3B82F6]">
+                <span className="w-2 h-2 rounded-full bg-[#3B82F6] animate-pulse" />
                 <span className="font-semibold text-xs">Aberto para contratação</span>
               </div>
               <p className="text-zinc-400 text-xs">

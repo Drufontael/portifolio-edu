@@ -25,14 +25,14 @@ export default function BlogSection({ onSelectArticle }: BlogSectionProps) {
   });
 
   return (
-    <section id="blog" className="py-20 md:py-28 bg-zinc-950 border-t border-zinc-800 relative">
+    <section id="blog" className="py-20 md:py-28 bg-[#18181B] border-t border-zinc-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 text-left">
           <div className="space-y-3 max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 flex items-center gap-2 font-mono">
-              <BookOpen className="w-3.5 h-3.5 text-blue-500" />
+              <BookOpen className="w-3.5 h-3.5 text-[#3B82F6]" />
               <span>Artigos Técnicos e Publicações</span>
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight font-mono">
@@ -52,7 +52,7 @@ export default function BlogSection({ onSelectArticle }: BlogSectionProps) {
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-3 py-1.5 rounded text-xs font-semibold uppercase tracking-wider transition-all ${
                     selectedCategory === cat
-                      ? 'bg-blue-600 text-white shadow-sm'
+                      ? 'bg-[#3B82F6] text-white shadow-sm'
                       : 'text-zinc-400 hover:text-white hover:bg-zinc-800'
                   }`}
                 >
@@ -81,12 +81,12 @@ export default function BlogSection({ onSelectArticle }: BlogSectionProps) {
                     onSelectArticle(post);
                   }
                 }}
-                className="group block rounded-xl bg-zinc-900 border border-zinc-800 hover:border-blue-500/50 transition-all duration-200 p-6 sm:p-7 space-y-4 shadow-md shadow-black/40 hover:shadow-blue-500/5 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="group block rounded-xl bg-zinc-900 border border-zinc-800 hover:border-[#3B82F6]/50 transition-all duration-200 p-6 sm:p-7 space-y-4 shadow-md shadow-black/40 hover:shadow-[#3B82F6]/5 focus:outline-none focus:ring-2 focus:ring-[#3B82F6]"
               >
                 <div className="space-y-3">
                   {/* Meta */}
                   <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-zinc-400">
-                    <span className="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20 font-medium text-[11px]">
+                    <span className="px-2 py-0.5 rounded bg-[#3B82F6]/10 text-[#3B82F6] border border-[#3B82F6]/25 font-medium text-[11px]">
                       {post.category}
                     </span>
                     {displayDate && (
@@ -103,7 +103,7 @@ export default function BlogSection({ onSelectArticle }: BlogSectionProps) {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg sm:text-xl font-semibold text-white group-hover:text-blue-400 transition-colors leading-snug">
+                  <h3 className="text-lg sm:text-xl font-semibold text-white group-hover:text-[#3B82F6] transition-colors leading-snug">
                     {post.title}
                   </h3>
 
@@ -126,7 +126,7 @@ export default function BlogSection({ onSelectArticle }: BlogSectionProps) {
                     ))}
                   </div>
 
-                  <div className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-400 group-hover:text-blue-300 transition-colors">
+                  <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#3B82F6] group-hover:text-blue-300 transition-colors">
                     <span>Acessar artigo completo</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
